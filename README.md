@@ -49,23 +49,24 @@ My Vegan Buddy is a platform aimed at everyone trying to find vegan recipes. It 
 
 > The focus here is to achieve a version of the website with just enough features to be usable - the concept of Minimum viable product (MVP), that contains:
 >
-> - Catalog with pictures depicting the amenities of the club.
-> - Map location of the club.
-> - Sign-up form.
-> - Straightforward UX for the users.
+> - Search engine to find vegan recipes, with options to search for them by name or ingredient.
+> - Nutritional information of the recipe.
+> - Rating system, time for cooking and portion size for each recipe.
+> - Sign-up form for newsletter service.
 > - Features that match my current knowledge.
+
 #### 3. Structure
 
-> On the structure plan, the effort was concentrated on prompting the user to quickly understand the layout of the page and find the content easily digestible - hence the content is structured on a bite-size framework. 
-> The gallery presents pictures of the club and are organised in a simple slide show widget with a brief description of the room → navigation bar intends to improve the returning user's experience.
+> Due to the complexity of the data that we mean to present to the user, the structure plan was thought-through from the simplest standpoint possible, that is, to present the data in a layout that is already known by the user.
+> The concept of search engines and how the results are presented are well-known to the user - the same goes for culinary recipes. Traditionally, this type of content follows a straightforward path and thats how we conveyed the content and the structure for the app.
 
 #### 4. Skeleton
 
-> - [Wire frames](assets/docs/wireframes.pdf): One-page website with five sections
+> - [Wire frames](assets/docs/wireframes.pdf): Four-page website.
 >
-> - Home, About, Gallery, Crew and Sign-Up/Contact sections.
+> - Home, About, Results and Recipe pages.
 >
-> - Navigation bar - Links to each section with a sign-in option.
+> - Navigation bar - Links to each page.
 >
 > - Footer with social media link and copyrights.
 

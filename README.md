@@ -21,7 +21,7 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 
 ### UX
 
-My Vegan Buddy is a platform aimed at everyone trying to find vegan recipes. It is meant to be an aid for people to chose a healthier diet - it has a simple yet effective layout, with constrasting elements and an easy to understand data output.
+> - My Vegan Buddy is a platform aimed at everyone trying to find vegan recipes. It is meant to be an aid for people to chose a healthier diet - it has a simple yet effective layout, with constrasting elements and an easy to understand data output.
 ---
 
 #### 1. Strategy

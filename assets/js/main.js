@@ -5,7 +5,7 @@ const buttonSubmit = document.getElementById('buttonSubmit');
 buttonSubmit.addEventListener('click', myFunction);
 
 function myFunction(data) {
-    const searchString = searchBar.value;
+    const searchString = searchBar.value + " " + "vegan";
     console.log(searchString);
 }
 

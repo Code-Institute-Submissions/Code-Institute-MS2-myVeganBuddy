@@ -1,18 +1,20 @@
-.active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
-  border-bottom: 1px solid #f48fb1;
-  box-shadow: 0 1px 0 0 #f48fb1;
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #eaeaea;
+    padding: 5px 10px;
+    font-size: 12px;
 }
 
-.search-bar-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+#searchWrapper {
+    position: relative;
 }
-.search-bar {
-    color: white;
-    width: 400px;
-    position: fixed;
-    top: 50%;
-    padding: 15px;
-    border: 3px solid red;
+
+#searchWrapper::after {
+    content: '🔍';
+    position: absolute;
+    top: 7px;
+    right: 15px;
 }

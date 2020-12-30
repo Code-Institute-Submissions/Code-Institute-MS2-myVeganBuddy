@@ -1,11 +1,9 @@
+const recipeList = document.getElementById('recipeList');
+const searchBar = document.getElementById('searchBar');
+let recipes = [];
 
-function getResult() {
-    var searchResult = document.getElementById('search-bar').value;
-    var result = document.getElementById('result').value;
-    
-    if (searchResult.length < 3) {
-        result.textContent = "Error"
-    } else {
-        result.textContent(searchResult)
-    }
-};
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    });
+
+console.log(searchString);

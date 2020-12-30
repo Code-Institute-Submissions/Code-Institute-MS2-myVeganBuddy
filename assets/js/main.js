@@ -1,9 +1,12 @@
 const recipeList = document.getElementById('recipeList');
 const searchBar = document.getElementById('searchBar');
-let recipes = [];
+const buttonSubmit = document.getElementById('buttonSubmit');
 
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
-    });
+buttonSubmit.addEventListener('click', myFunction);
 
-console.log(searchString);
+function myFunction(data) {
+    const searchString = searchBar.value;
+    console.log(searchString);
+}
+
+

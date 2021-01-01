@@ -4,24 +4,32 @@ const buttonSubmit = document.getElementById('buttonSubmit');
 const buttonAPI = document.getElementById('buttonAPI');
 const myRequest = new XMLHttpRequest();
 
+const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients"
 
-buttonSubmit.addEventListener('click', findRecipe);
+var queryString = {
+    "number": "5",
+    "ranking": "1",
+    "ignorePantry": "false",
+    "ingredients": searchIngredients()
+};
+
+buttonSubmit.addEventListener('click', searchIngredients);
 
 
 buttonAPI.addEventListener('click', makeRequest(printToHTML));
 
 
-function findRecipe(data) {
-    const searchString = searchBar.value.toLowerCase() + " " + "vegan";
-    recipeList.innerHTML = searchString;
-}
+function searchIngredients() {
+    var searchString = searchBar.value.toLowerCase() + " " + "vegan";
+    return searchString;
+};
 
 function printToHTML(data) {
-    recipeList.innerHTML = data[0].image;
-}
+    recipeList.innerHTML = data[0].title;
+};
 
 function makeRequest(cb) {
-    myRequest.open('GET',"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=apples%2Cflour%2Csugar&number=5&ranking=1&ignorePantry=true");
+    myRequest.open('GET', url + queryString);
     myRequest.setRequestHeader("x-rapidapi-key", "a");
     myRequest.setRequestHeader("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com");
 
@@ -30,7 +38,7 @@ function makeRequest(cb) {
         if (this.readyState == 4 && this.status == 200) {
            cb(JSON.parse(myRequest.responseText));
         } else {
-            console.log('An error occurred');
+            console.log(myRequest.responseText);
         }
     }
 

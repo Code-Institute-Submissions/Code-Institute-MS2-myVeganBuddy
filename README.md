@@ -177,18 +177,18 @@ Through some research, I've found that Gym websites praise contrast between colo
 
 ### Bugs and turnarounds
 
-> - The "Crew" section had aligning issues with lack of structure. The way around was to use a code snippet I found on [WrapPixel](https://snippets.wrappixel.com/bootstrap-our-team-section/) and change the structure slightly.
-> - Faced issues with spacing the rounded-pictures for the crew section. Wrapped the content in bootstrap class with flex box properties to space them out evenly.
-> - Meet the crew section had issues with image size for different devices - the rounded pictures were to big for smaller devices. Found the solution on [Stack Overflow](https://stackoverflow.com/questions/29641526/how-can-images-be-resized-using-bootstrap#:~:text=Use%20class%3D%22img%2Dresponsive,Its%20a%20bootstrap%20class).
-> - Rounded pictures had different sizes, which was pushing the subtitle and the description of each member to different places.
-> - Had issues to push the social media links in the footer section to the right. Wrapped the content in a bootstrap class container which uses flex box technology to horizontally align content to the right.
-> - Footer section had issues on mobile devices, as the sizing would get scrambled. Fixed by wrapping in a container only visible on medium screens and above, and created another one only for smaller screens.
-> - Carousel was aligning to the left side of the page, used bootstrap class with flex box properties to create space around the gallery and centralize it.
-> - Carousel rendered too small for mobile phones, which led me to choose a different type of gallery(static) for smaller devices.
-> - Carousel images on desktop were too wide and big, which led me to wrap the around another container to keep it consistent and easier to navigate through them.
-> - On the find us section, I had issues with embedding the map. I followed the tutorial found on [Youtube](https://youtu.be/UqXeX1Irv5o) - How to Make a Responsive Google Map Embed with CSS (EASY), by garnatti one.
-> - In order to align the content in one section, I wrapped the Google maps snippet and the find us content in a card deck.
-> - Background image wasn't rendering well on mobile devices (it was rendering well on Dev Tools, not on mobile devices per se.) I asked the question on [Stack Overflow](https://stackoverflow.com/questions/65139910/background-image-appears-zoomed-in-on-mobile-screens) and found the solution.
+> - Issues to create the API request, by putting the URL together. Ended it up finding a solution by using template literals - String Interpolation.
+> - I had issues in transforming and accessing the object returned by the API's request. Transformed in a JSON object and accessed the ".results" property to iterate through the object.
+> - Had issues to create a HTML template to render the object returned by the request.
+> - 
+> - 
+> - 
+> - 
+> - 
+> - 
+> -
+> - 
+> - 
 ---
 
 ### Code validity

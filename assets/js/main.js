@@ -29,17 +29,21 @@ function requestAPI () {
 
 
 function renderResponse(data) {
-    let output = `<h2 class="title">Results</h2>`;
+    let output = `<h2 class="title text-center">Results</h2>`;
     data = data.results;
     data.forEach(function(recipe) {
         output +=
-        `<ul class="list-group">
-            <li class="list-group-item">ID: ${recipe.id}</li>
-            <li class="list-group-item">Name: ${recipe.title}</li>
-            <li class="list-group-item">Picture: <img class="img-thumbnail" src="${recipe.image}"</img></li>
-        <ul>`;
-
+        `<div class="card" style="width: 18rem;">
+            <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${recipe.title}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Check it out</a>
+                </div>
+        </div>`
+       
     })
 
     document.getElementById('recipeList').innerHTML = output;
 };
+

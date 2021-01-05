@@ -1,49 +1,45 @@
-const recipeList = document.getElementById('recipeList');
-const searchBar = document.getElementById('searchBar');
-const buttonSubmit = document.getElementById('buttonSubmit');
-const buttonAPI = document.getElementById('buttonAPI');
-const myRequest = new XMLHttpRequest();
-
-const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients"
-
-var queryString = {
-    "number": "5",
-    "ranking": "1",
-    "ignorePantry": "false",
-    "ingredients": searchIngredients()
-};
-
-buttonSubmit.addEventListener('click', searchIngredients);
+const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
 
 
-buttonAPI.addEventListener('click', makeRequest(printToHTML));
+
+const buttonApi = document.getElementById('buttonApi');
 
 
-function searchIngredients() {
-    var searchString = searchBar.value.toLowerCase() + " " + "vegan";
-    return searchString;
-};
-
-function printToHTML(data) {
-    recipeList.innerHTML = data[0].title;
-};
-
-function makeRequest(cb) {
-    myRequest.open('GET', url + queryString);
-    myRequest.setRequestHeader("x-rapidapi-key", "a");
-    myRequest.setRequestHeader("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com");
+buttonApi.addEventListener('click',requestAPI);
 
 
-    myRequest.onload = function() {
-        if (this.readyState == 4 && this.status == 200) {
-           cb(JSON.parse(myRequest.responseText));
-        } else {
-            console.log(myRequest.responseText);
+
+function requestAPI () {
+    
+    var searchString = document.getElementById('searchBar').value;
+
+    fetch(`${url}?diet=vegan&includeIngredients=${searchString}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "a",
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
         }
-    }
+    })
+        .then((response) => response.json()) 
+            .then((data) => renderResponse(data))
+            .catch(err => {
+            alert(err);
+        }); 
+} 
 
 
-    myRequest.send()
+function renderResponse(data) {
+    let output = `<h2 class="title">Results</h2>`;
+    data = data.results;
+    data.forEach(function(recipe) {
+        output +=
+        `<ul class="list-group">
+            <li class="list-group-item">ID: ${recipe.id}</li>
+            <li class="list-group-item">Name: ${recipe.title}</li>
+            <li class="list-group-item">Picture: <img class="img-thumbnail" src="${recipe.image}"</img></li>
+        <ul>`;
+
+    })
+
+    document.getElementById('recipeList').innerHTML = output;
 };
-
-

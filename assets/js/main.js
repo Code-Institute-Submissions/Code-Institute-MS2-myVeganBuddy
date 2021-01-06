@@ -1,31 +1,26 @@
-const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
-
-
-
+const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex"
 const buttonApi = document.getElementById('buttonApi');
+const recipeList = document.getElementById('recipeList');
+buttonApi.addEventListener('click', requestAPI);
 
 
-buttonApi.addEventListener('click',requestAPI);
+function requestAPI() {
 
-
-
-function requestAPI () {
-    
     var searchString = document.getElementById('searchBar').value;
 
-    fetch(`${url}?diet=vegan&includeIngredients=${searchString}`, {
+    fetch(`${url}?limitLicense=true&offset=0&number=10&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "a",
+            "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
         }
     })
-        .then((response) => response.json()) 
-            .then((data) => renderResponse(data))
-            .catch(err => {
+        .then((response) => response.json())
+        .then((data) => renderResponse(data))
+        .catch(err => {
             alert(err);
-        }); 
-} 
+        });
+}
 
 
 function renderResponse(data) {
@@ -33,17 +28,40 @@ function renderResponse(data) {
     data = data.results;
     data.forEach(function(recipe) {
         output +=
-        `<div class="card" style="width: 18rem;">
-            <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
-                <div class="card-body">
-                    <h5 class="card-title">${recipe.title}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Check it out</a>
+            
+            `<div class="col">
+                <div class="card">
+                    <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${recipe.title}</h5>
+                        <p class="card-text text-center">${recipe.summary}</p>
+                        <div class="text-center">
+                            <ul>
+                                <li> Calories: ${recipe.calories}</li>
+                                <li> Servings: ${recipe.servings} portion(s)</li>
+                                <li> Time: ${recipe.readyInMinutes} minutes</li>
+                            </ul>
+                        </div>
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-danger" onclick="requestRecipe(${recipe.id})">Check it out</a>
+                        </div>
+                    </div>
                 </div>
-        </div>`
-       
-    })
-
-    document.getElementById('recipeList').innerHTML = output;
+            </div>`
+    });
+    recipeList.innerHTML = output;
 };
 
+function requestRecipe(recipeId) {
+    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "x",
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+        }
+    })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((err) => alert(err));
+};

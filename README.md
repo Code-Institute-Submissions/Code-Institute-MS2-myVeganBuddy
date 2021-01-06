@@ -180,7 +180,7 @@ Through some research, I've found that Gym websites praise contrast between colo
 > - Issues to create the API request, by putting the URL together. Ended it up finding a solution by using template literals - String Interpolation.
 > - I had issues in transforming and accessing the object returned by the API's request. Transformed in a JSON object and accessed the ".results" property to iterate through the object.
 > - Had issues to create a HTML template to render the object returned by the request.
-> - 
+> - Bug encountered when rendering "bootstrap-card-group" on large screens. Found the solution here:
 > - 
 > - 
 > - 

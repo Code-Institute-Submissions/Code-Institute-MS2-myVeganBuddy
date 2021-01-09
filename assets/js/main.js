@@ -17,7 +17,7 @@ function requestAPI() {
     fetch(`${url}?limitLicense=true&offset=0&number=10&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
+            "x-rapidapi-key": "a",
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
         }
     })
@@ -31,34 +31,32 @@ function requestAPI() {
 function renderResponse(data) {
     let output = `
     <h2 class="title text-center">Results</h2><br>
-    <div class="row-cols-auto card-deck card-render">`
+    <div class="row">`
     // Accesses the array
     data = data.results;
     // Loops through the array of recipes and renders them separately 
     data.forEach(function(recipe) {
         output +=
                 `
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="${recipe.image}" class="card-img-top img-thumbnail" alt="${recipe.title} style="max-width:25%">
-                    <h5 class="card-header">${recipe.title}</h5>
-                    <div class="card-body">
-                        <p class="card-text text-center">${recipe.summary}</p>
-                        <div class="text-center">
-                            <ul>
-                                <li> Calories: ${recipe.calories}</li>
-                                <li> Servings: ${recipe.servings} portion(s)</li>
-                                <li> Time: ${recipe.readyInMinutes} minutes</li>
-                            </ul>
-                        </div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger" onclick="requestRecipe(${recipe.id})">Check it out</a>
+                <div class="col-sm-12 col-md-3">
+                    <div class="card">
+                        <img src="${recipe.image}" class="card-img-top img-thumbnail" alt="${recipe.title}">
+                        <h5 class="card-header text-center">${recipe.title}</h5>
+                        <div class="card-body">
+                            <p class="card-text text-center">${recipe.summary}</p>
+                            <div class="text-center">
+                                <ul>
+                                    <li> Calories: ${recipe.calories}</li>
+                                    <li> Servings: ${recipe.servings} portion(s)</li>
+                                    <li> Time: ${recipe.readyInMinutes} minutes</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-danger" onclick="requestRecipe(${recipe.id})">Check it out</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>`
-
-        output = output + `</div>`
+                </div>`
     });
     // Renders the above template into the target div element
     recipeList.innerHTML = output;
@@ -70,7 +68,7 @@ function requestRecipe(recipeId) {
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information?includeNutrition=true`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
+            "x-rapidapi-key": "a",
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
         }
     })
@@ -114,5 +112,5 @@ function renderRecipe(data){
     // Re-defeines the variable and adds the closing HTML tag
     ingredientOutput = ingredientOutput + `</ul>`
     // Directs the variable to the html element
-    recipeRender.innerHTML = recipeOutput + ingredientOutput;
+   recipeList.innerHTML = recipeOutput + ingredientOutput;
 }

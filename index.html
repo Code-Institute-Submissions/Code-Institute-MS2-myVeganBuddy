@@ -17,10 +17,37 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 search-bar">
-                <h1 class="text-center">Recipes</h1><br>
-                <div class="searchWrapper">
+                <div id="search-wrapper">
                     <input type="text" name="searchBar" id="searchBar" placeholder="Ingredients..." />
-                    <input id="buttonApi" class="btn btn-primary button-spin" type="submit" value="Spin"><a href="#recipeList" target="_blank"></a>
+                </div>
+                <div class="text-center mt-3">
+                    <input id="buttonApi" class="btn btn-primary button-spin" type="submit" value="Spin">
+                    <button class="btn btn-primary" data-toggle="collapse" data-target="#rangeCollapse">Advanced Search</button>
+                    <button id="buttonClear" class="btn btn-primary">Clear</button>
+                </div>
+            </div>
+        </div>
+        <div class="row collapse range" id="rangeCollapse">
+            <div class="col-12">
+                <div class="range-wrapper">
+                    <label for="maxCarbs" class="form-label">Max Calories</label>
+                    <input type="range" class="slider" value="2000" min="0" max="2000" id="maxCalories">
+                    <div id="maxCaloriesOutput"></div>
+                </div>
+                <div class="range-wrapper">
+                    <label for="maxCarbs" class="form-label">Max Protein</label>
+                    <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
+                    <div id="maxProteinOutput"></div>
+                </div>
+                <div class="range-wrapper">
+                    <label for="maxCarbs" class="form-label">Max Fat</label>
+                    <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
+                    <div id="maxFatOutput"></div>
+                </div>
+                <div class="range-wrapper">
+                    <label for="maxCarbs" class="form-label">Max Carbs</label>
+                    <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
+                    <div id="maxCarbsOutput"></div>
                 </div>
             </div>
         </div>

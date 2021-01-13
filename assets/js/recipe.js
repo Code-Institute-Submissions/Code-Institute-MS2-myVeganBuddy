@@ -1,6 +1,9 @@
 
+
+
 // Passes the ID property as a parameter to request the particular recipe and renders to the HTML placeholder element
 function requestRecipe(recipeId) {
+
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information?includeNutrition=true`, {
         "method": "GET",
         "headers": {
@@ -8,7 +11,8 @@ function requestRecipe(recipeId) {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
         }
     })
-        .then((response) => response.json())
+     
+    .then((response) => response.json())
         // passes the JSON object as a parameter of a rendering function
         .then((data) => renderRecipe(data))
         .catch((err) => alert(err));
@@ -27,7 +31,7 @@ function renderRecipe(data) {
         </div>
         <p><strong>Summary:</strong>${data.summary}</p><br>
         <h3 class="text-center"> Macros: </h3><br>
-        <ul class="recipe-detail">
+        <ul class="recipe-detail">nao te
             <li>Calories: ${nutrients[0].amount} kcal</li>
             <li>Fat: ${nutrients[1].amount} grams</li>
             <li>Carbs: ${nutrients[3].amount} grams</li>
@@ -48,5 +52,6 @@ function renderRecipe(data) {
     // Re-defines the variable and adds the closing HTML tag
     ingredientOutput = ingredientOutput + `</ul>`
     // Directs the variable to the html element
-    recipeList.innerHTML = recipeOutput + ingredientOutput;
+    temp.innerHTML = recipeOutput + ingredientOutput;
 }
+

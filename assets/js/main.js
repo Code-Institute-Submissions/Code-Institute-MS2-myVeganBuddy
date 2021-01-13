@@ -40,7 +40,6 @@ function requestAPI() {
 
 // Renders the JSON object in the HTML placeholder element
 function renderResponse(data) {
-    recipeList.innerHTML = "";
     // Accesses the array
     data = data.results;
     // Error handling
@@ -110,14 +109,3 @@ function clearContent(element){
 };
 
 
-// Toggle visibility for the searchWrapper
-// Code found in "Toggle visibility of an element with JavaScript https://stackoverflow.com/questions/34097615/toggle-visibility-of-an-element-with-javascript"
-function toggleVisibility(id) {
-    var e = document.getElementById(id);
-    if (e.style.display == 'none') {
-        e.style.display == 'block'
-    } else {
-        e.style.display = 'none'
-    };
-
-}

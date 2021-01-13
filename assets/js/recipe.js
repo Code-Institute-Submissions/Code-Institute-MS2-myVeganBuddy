@@ -24,20 +24,30 @@ function renderRecipe(data) {
     let nutrients = data.nutrition.nutrients;
     // Creates variable with HTML elements to render on the page
     let recipeOutput = `
-    <div class="row">    
-        <div class="col-12 text-center">
-            <img src="${data.image}" class="img-thumbnail" alt="${data.title}">
-            <h2>${data.title}</h2>
-        </div>
-        <p><strong>Summary:</strong>${data.summary}</p><br>
-        <h3 class="text-center"> Macros: </h3><br>
-        <ul class="recipe-detail">nao te
-            <li>Calories: ${nutrients[0].amount} kcal</li>
-            <li>Fat: ${nutrients[1].amount} grams</li>
-            <li>Carbs: ${nutrients[3].amount} grams</li>
-            <li>Protein: ${nutrients[8].amount} grams</li>
-        </ul>
-    </div>`
+        <div class="row">    
+            <div class="col-12 text-center">
+                <div class="card flex-row flex-wrap">
+                    <div class="card-header border-0 image-wrapper">
+                        <img src="${data.image}" class="card-img-top img-thumbnail" alt="${data.title}">
+                    </div>
+                    <div class="card-block px-2 text-center">
+                        <h2 class="card-title recipe-title">${data.title}</h2>
+                        <p><strong>Summary:</strong>${data.summary}</p><br>
+                    </div>
+                        <div class="section-title text-center>
+                            <h3 class="text-center"> Macros: </h3><br>
+                        </div>
+                        <ul class="recipe-detail">
+                            <li>Calories: ${nutrients[0].amount} kcal</li>
+                            <li>Fat: ${nutrients[1].amount} grams</li>
+                            <li>Carbs: ${nutrients[3].amount} grams</li>
+                            <li>Protein: ${nutrients[8].amount} grams</li>
+                        </ul>
+                    </div>
+                </div
+            </div>
+        </div>`
+
     // Accesses the ingredients property of the object
     let ingredients = data.extendedIngredients
     let ingredientOutput = `
@@ -46,12 +56,20 @@ function renderRecipe(data) {
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
         ingredientOutput +=
-            `<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
+           
+        `<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
 
     });
     // Re-defines the variable and adds the closing HTML tag
     ingredientOutput = ingredientOutput + `</ul>`
     // Directs the variable to the html element
-    temp.innerHTML = recipeOutput + ingredientOutput;
-}
+    let instructions = data.instructions;
+    let instructionOutput = 
+    
+        `<div> 
+            <h3> Instructions: </h3>
+            <p>${instructions}</p>
+        </div>`
 
+    recipeRender.innerHTML = recipeOutput + ingredientOutput + instructionOutput;
+}

@@ -17,6 +17,10 @@ ul {
   max-height: 50%;
 }
 
+.image-wrapper {
+  max-width: 50vh;
+  max-height: 50vh;
+}
 
 /* Card Render */
 

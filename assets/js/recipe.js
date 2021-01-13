@@ -1,6 +1,5 @@
 
 
-
 // Passes the ID property as a parameter to request the particular recipe and renders to the HTML placeholder element
 function requestRecipe(recipeId) {
 
@@ -23,6 +22,7 @@ function renderRecipe(data) {
     // access the nutrients property of the object
     let nutrients = data.nutrition.nutrients;
     // Creates variable with HTML elements to render on the page
+        
     let recipeOutput = `
         <div class="row">    
             <div class="col-12 text-center">
@@ -70,6 +70,8 @@ function renderRecipe(data) {
             <h3> Instructions: </h3>
             <p>${instructions}</p>
         </div>`
-
-    recipeRender.innerHTML = recipeOutput + ingredientOutput + instructionOutput;
+    var requestedRecipe = recipeOutput + ingredientOutput + instructionOutput;
+    localStorage.setItem('requestedRecipe', requestedRecipe);
+    window.location.href = "recipe.html";
 }
+

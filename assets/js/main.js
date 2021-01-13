@@ -4,7 +4,6 @@ const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes
 const buttonApi = document.getElementById('buttonApi');
 const buttonClear = document.getElementById('buttonClear');
 const recipeList = document.getElementById('recipeList');
-const recipeRender = document.getElementById('recipeRender');
 
 
 // Sliders
@@ -80,7 +79,7 @@ function renderResponse(data) {
                                     </ul>
                                 </div>
                                 <div class="text-center">
-                                    <a href="temp.html" target="_blank" class="btn btn-danger" onclick="requestRecipe(${recipe.id})">Cook me</a>
+                                    <button class="btn btn-danger" onclick="requestRecipe(${recipe.id})">Cook me</button>
                                 </div>
                             </div>
                         </div>

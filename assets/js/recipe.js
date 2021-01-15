@@ -22,56 +22,140 @@ function requestRecipe(recipeId) {
 function renderRecipe(data) {
     // access the nutrients property of the object
     let nutrients = data.nutrition.nutrients;
+    rating = Math.round(data.spoonacularScore/10) * 10;
     // Creates variable with HTML elements to render on the page
         
     let recipeOutput = `
         <div class="row">    
-            <div class="col-12 text-center">
-                <div class="card flex-row flex-wrap">
-                    <div class="card-header border-0 image-wrapper">
-                        <img src="${data.image}" class="card-img-top img-thumbnail" alt="${data.title}">
+            <div class="col-12">
+                <div class="image-wrapper">
+                    <img src="${data.image}" class="img-fluid img-responsive rounded" alt="${data.title}">
+                </div>
+                <div class="title-wrapper text-center mt-5">
+                    <h3 class="card-title recipe-title">${data.title}</h3>
+                </div>
+                <div class="icons-wrapper">
+                    <div class="stars-outer">
+                        <div class="stars-inner" style="width:${rating}%"></div>
                     </div>
-                    <div class="card-block px-2 text-center">
-                        <h2 class="card-title recipe-title">${data.title}</h2>
-                        <p><strong>Summary:</strong>${data.summary}</p><br>
-                    </div>
-                        <div class="section-title text-center>
-                            <h3 class="text-center"> Macros: </h3><br>
-                        </div>
-                        <ul class="recipe-detail">
-                            <li>Calories: ${nutrients[0].amount} kcal</li>
-                            <li>Fat: ${nutrients[1].amount} grams</li>
-                            <li>Carbs: ${nutrients[3].amount} grams</li>
-                            <li>Protein: ${nutrients[8].amount} grams</li>
-                        </ul>
-                    </div>
-                </div
+                <i class="fas fa-thumbs-up"> - ${data.aggregateLikes}</i>
+                </div>
             </div>
-        </div>`
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h4 class> Macros: </h4><br>
+                </div>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nutrients
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+                            <th>
+                                Percentage of Daily Needs*
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Calories
+                            </td>
+                            <td>
+                                ${nutrients[0].amount} kcal
+                            </td>
+                            <td>
+                                ${nutrients[0].percentOfDailyNeeds}%
+                            </td>
+                        </tr>
+                        <tr class="table-active">
+                            <td>
+                                Fat
+                            </td>
+                            <td>
+                                ${nutrients[1].amount} grams
+                            </td>
+                            <td>
+                                ${nutrients[1].percentOfDailyNeeds}%
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>
+                                Carbs
+                            </td>
+                            <td>
+                                ${nutrients[3].amount} grams
+                            </td>
+                            <td>
+                                ${nutrients[3].percentOfDailyNeeds}%
+                            </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>
+                                Protein
+                            </td>
+                            <td>
+                                ${nutrients[8].amount} grams
+                            </td>
+                            <td>
+                                ${nutrients[8].percentOfDailyNeeds}%
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">`
+
+// Finds the method for the recipe
+    let instructionSteps = data.analyzedInstructions[0].steps;
+    let instructionOutput = 
+   
+    `   <div class="col-md-8"> 
+        <h3 class="section-title"> Method: </h3>
+        <ol>`
+
+    instructionSteps.forEach(function(step) {
+       
+        instructionOutput +=
+
+        `<li class="list-item">
+            ${step.step}
+        </li>`
+    })
+
+    instructionOutput = instructionOutput + 
+
+    `
+         </ol>
+    </div>`
 
     // Accesses the ingredients property of the object
     let ingredients = data.extendedIngredients
     let ingredientOutput = `
-    <h2> Ingredients:</h2>
-    <ul class=ingredient-detail>`
+    <div class="col-md-4 ingredient-list">
+        <h2> Ingredients:</h2>
+        <ul class=ingredient-detail>`
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
         ingredientOutput +=
            
-        `<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
+        `<li class="list-item">${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
 
     });
     // Re-defines the variable and adds the closing HTML tag
-    ingredientOutput = ingredientOutput + `</ul>`
-    // Directs the variable to the html element
-    let instructions = data.instructions;
-    let instructionOutput = 
+    ingredientOutput = ingredientOutput +
     
-        `<div> 
-            <h3> Instructions: </h3>
-            <p>${instructions}</p>
-        </div>`
-    var requestedRecipe = recipeOutput + ingredientOutput + instructionOutput;
+    `       </ul>
+        </div>
+    </div>`
+    // Directs the variable to the html element
+    var requestedRecipe = recipeOutput + instructionOutput + ingredientOutput;
     localStorage.setItem('requestedRecipe', requestedRecipe);
     window.location.href = "recipe.html";
 }

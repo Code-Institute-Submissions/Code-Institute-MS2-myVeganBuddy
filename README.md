@@ -179,10 +179,9 @@ Through some research, I've found that Gym websites praise contrast between colo
 
 > - Issues to create the API request, by putting the URL together. Ended it up finding a solution by using template literals - String Interpolation.
 > - I had issues in transforming and accessing the object returned by the API's request. Transformed in a JSON object and accessed the ".results" property to iterate through the object.
-> - Had issues to create a HTML template to render the object returned by the request.
-> - Bug encountered when rendering "bootstrap-card-group" on large screens. Found the solution here
-> - Bug found on filling FontAwesome starts according to rating from API. Found solution on:[A Simple JavaScript Technique for Filling Star Ratings](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450).
-> - 
+> - Bug encountered when rendering "bootstrap-card-group" on large screens. To solve this issue, I have used bootstrap grid layout (*.col-12).
+> - Bug found on filling FontAwesome starts according to rating from API. Found solution on: [A Simple JavaScript Technique for Filling Star Ratings](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450).
+> - Found a bug trying to render the recipe to another HTML page. The turnaround was offered by Victor (my mentor), by saving the target HTML element to 'localStorage', changing to another page using 'window.location.href' property and loading the saved content from 'localStorage'.  
 > - 
 > - 
 > - 

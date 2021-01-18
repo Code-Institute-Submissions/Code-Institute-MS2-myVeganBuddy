@@ -1,5 +1,4 @@
 
-// test
 
 // Passes the ID property as a parameter to request the particular recipe and renders to the HTML placeholder element
 function requestRecipe(recipeId) {
@@ -41,8 +40,9 @@ function renderRecipe(data) {
                 <i class="fas fa-thumbs-up"> - ${data.aggregateLikes}</i>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div>`
+    let macros = 
+        `<div class="row">
             <div class="col-12">
                 <div class="section-title text-center">
                     <h4 class> Macros: </h4><br>
@@ -109,14 +109,15 @@ function renderRecipe(data) {
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="row">`
+        </div>`
 
 // Finds the method for the recipe
     let instructionSteps = data.analyzedInstructions[0].steps;
     let instructionOutput = 
    
-    `   <div class="col-md-8"> 
+    `   
+    <div class="row">
+    <div class="col-md-8"> 
         <h3 class="section-title"> Method: </h3>
         <ol>`
 
@@ -155,7 +156,7 @@ function renderRecipe(data) {
         </div>
     </div>`
     // Directs the variable to the html element
-    var requestedRecipe = recipeOutput + instructionOutput + ingredientOutput;
+    var requestedRecipe = recipeOutput + instructionOutput + ingredientOutput + macros;
     localStorage.setItem('requestedRecipe', requestedRecipe);
     window.location.href = "recipe.html";
 }

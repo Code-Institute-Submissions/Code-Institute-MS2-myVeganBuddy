@@ -30,36 +30,38 @@ function renderRecipe(data) {
                 <div class="image-wrapper">
                     <img src="${data.image}" class="img-fluid img-responsive rounded" alt="${data.title}">
                 </div>
-                <div class="title-wrapper text-center mt-5">
-                    <h3 class="card-title recipe-title">${data.title}</h3>
-                </div>
-                <div class="icons-wrapper">
-                    <div class="stars-outer">
-                        <div class="stars-inner" style="width:${rating}%"></div>
-                    </div>
-                </div>
-                <div class="recipe-info">
-                    <ul class="list-group">
-                        <li class="list-item"><i class="far fa-clock"></i> - ${data.readyInMinutes} minutes</li>
-                        <li class="list-item"><i class="fas fa-thumbs-up"> - ${data.aggregateLikes}</i></li>
-                        <li class="list-item"> WW SmartPoints - ${data.weightWatcherSmartPoints}</li> 
-                    </ul>
-                </div>
             </div>`
     let macros = 
         `
             <div class="col-sm-12 col-md-6">
-                <div class="section-title text-center">
-                    <h4 class> Macros: </h4><br>
-                    <button class="btn btn-primary" data-toggle="collapse" data-target="#table-collapse">Expand</button>
-                </div>
-                <div class="macros-wrapper">
-                    <ul class="macros-simple">
-                        <li>Calories: ${nutrients[0].amount.toFixed(1)} kcal </li>
-                        <li>Fat: ${nutrients[1].amount.toFixed(1)} grams </li>
-                        <li>Carbs ${nutrients[3].amount.toFixed(1)} grams </li>
-                        <li>Protein ${nutrients[8].amount.toFixed(1)} grams </li> 
-                    </ul>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="title-wrapper text-center">
+                            <h3 class="card-title recipe-title">${data.title}</h3>
+                        </div>
+                        <div class="icons-wrapper">
+                            <div class="stars-outer">
+                                <div class="stars-inner" style="width:${rating}%"></div>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <ul class="list-group">
+                                <li class="list-item"><i class="far fa-clock"></i> - ${data.readyInMinutes} minutes</li>
+                                <li class="list-item"><i class="fas fa-thumbs-up"> - ${data.aggregateLikes}</i></li>
+                                <li class="list-item"> WW SmartPoints - ${data.weightWatcherSmartPoints}</li> 
+                            </ul>
+                        </div>
+                        <h5 class="card-title"> Macros: </h5>
+                        <div class="card-text">
+                            <ul class="macros-simple">
+                                <li>Calories: ${nutrients[0].amount.toFixed(1)} kcal </li>
+                                <li>Fat: ${nutrients[1].amount.toFixed(1)} grams </li>
+                                <li>Carbs: ${nutrients[3].amount.toFixed(1)} grams </li>
+                                <li>Protein: ${nutrients[8].amount.toFixed(1)} grams </li> 
+                            </ul>
+                            <button class="btn btn-primary" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button>
+                        </div>
+                    </div>  
                 </div>
                 <table class="table table-sm table-hover collapse" id="table-collapse">
                     <thead class="table-light">
@@ -131,7 +133,7 @@ function renderRecipe(data) {
     // Accesses the ingredients property of the object
     let ingredients = data.extendedIngredients
     let ingredientOutput = `
-    <div class="col-md-4 ingredient-list">
+    <div class="col-md-4 order-1 ingredient-list">
         <h2> Ingredients:</h2>
         <ul class=ingredient-detail>`
     // Loops through the ingredients and prints it to the page

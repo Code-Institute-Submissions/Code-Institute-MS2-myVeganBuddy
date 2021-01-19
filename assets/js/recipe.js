@@ -25,7 +25,7 @@ function renderRecipe(data) {
     // Creates variable with HTML elements to render on the page
         
     let recipeOutput = `
-        <div class="row">    
+        <div class="row recipe-render">    
             <div class="col-12">
                 <div class="image-wrapper">
                     <img src="${data.image}" class="img-fluid img-responsive rounded" alt="${data.title}">
@@ -37,7 +37,13 @@ function renderRecipe(data) {
                     <div class="stars-outer">
                         <div class="stars-inner" style="width:${rating}%"></div>
                     </div>
-                <i class="fas fa-thumbs-up"> - ${data.aggregateLikes}</i>
+                </div>
+                <div class="recipe-info">
+                    <ul class="list-group">
+                        <li class="list-item"><i class="far fa-clock"></i> - ${data.readyInMinutes} minutes</li>
+                        <li class="list-item"><i class="fas fa-thumbs-up"> - ${data.aggregateLikes}</i></li>
+                        <li class="list-item"> WW SmartPoints - ${data.weightWatcherSmartPoints}</li> 
+                    </ul>
                 </div>
             </div>
         </div>`
@@ -117,7 +123,7 @@ function renderRecipe(data) {
    
     `   
     <div class="row">
-    <div class="col-md-8"> 
+    <div class="col-md-8 method-list"> 
         <h3 class="section-title"> Method: </h3>
         <ol>`
 

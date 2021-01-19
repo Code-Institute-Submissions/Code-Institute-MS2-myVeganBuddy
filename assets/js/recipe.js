@@ -26,7 +26,7 @@ function renderRecipe(data) {
         
     let recipeOutput = `
         <div class="row recipe-render">    
-            <div class="col-12">
+            <div class="col-sm-12 col-md-6">
                 <div class="image-wrapper">
                     <img src="${data.image}" class="img-fluid img-responsive rounded" alt="${data.title}">
                 </div>
@@ -45,11 +45,10 @@ function renderRecipe(data) {
                         <li class="list-item"> WW SmartPoints - ${data.weightWatcherSmartPoints}</li> 
                     </ul>
                 </div>
-            </div>
-        </div>`
+            </div>`
     let macros = 
-        `<div class="row">
-            <div class="col-12">
+        `
+            <div class="col-sm-12 col-md-6">
                 <div class="section-title text-center">
                     <h4 class> Macros: </h4><br>
                 </div>
@@ -162,7 +161,7 @@ function renderRecipe(data) {
         </div>
     </div>`
     // Directs the variable to the html element
-    var requestedRecipe = recipeOutput + instructionOutput + ingredientOutput + macros;
+    var requestedRecipe = recipeOutput + macros + instructionOutput + ingredientOutput;
     localStorage.setItem('requestedRecipe', requestedRecipe);
     window.location.href = "recipe.html";
 }

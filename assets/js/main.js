@@ -61,15 +61,14 @@ function renderResponse(data) {
                             <h4 class="card-header text-center">${recipe.title}</h4>
                             <div class="card-body">
                                 <div class="text-center">
-                                    <h5><strong>Rating:</strong></h5>
                                     <div class="stars-outer">
                                         <div class="stars-inner" style="width:${rating}%"></div>
                                     </div>
                                     <ul class="mt-3">
                                         <ul class="icon-list">
-                                            <li><i class="fas fa-users fa-2x"></i><strong> ${recipe.servings} portion(s)</strong></li>
-                                            <li><i class="far fa-clock fa-2x"></i><strong> ${recipe.readyInMinutes} minutes</strong></li>
-                                            <li><i class="fas fa-cookie-bite fa-2x"></i><strong> ${recipe.calories} kcal</strong></li>
+                                            <li><i class="fas fa-users"></i><strong> ${recipe.servings} portion(s)</strong></li>
+                                            <li><i class="far fa-clock"></i><strong> ${recipe.readyInMinutes} minutes</strong></li>
+                                            <li><i class="fas fa-cookie-bite"></i><strong> ${recipe.calories} kcal</strong></li>
                                         </ul>
                                         <div class="mt-3">
                                             <li><strong>Protein: ${recipe.protein}</strong></li>

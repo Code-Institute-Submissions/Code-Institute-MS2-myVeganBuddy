@@ -51,9 +51,18 @@ function renderRecipe(data) {
             <div class="col-sm-12 col-md-6">
                 <div class="section-title text-center">
                     <h4 class> Macros: </h4><br>
+                    <button class="btn btn-primary" data-toggle="collapse" data-target="#table-collapse">Expand</button>
                 </div>
-                <table class="table table-sm">
-                    <thead>
+                <div class="macros-wrapper">
+                    <ul class="macros-simple">
+                        <li>Calories: ${nutrients[0].amount.toFixed(1)} kcal </li>
+                        <li>Fat: ${nutrients[1].amount.toFixed(1)} grams </li>
+                        <li>Carbs ${nutrients[3].amount.toFixed(1)} grams </li>
+                        <li>Protein ${nutrients[8].amount.toFixed(1)} grams </li> 
+                    </ul>
+                </div>
+                <table class="table table-sm table-hover collapse" id="table-collapse">
+                    <thead class="table-light">
                         <tr>
                             <th>
                                 Nutrients
@@ -62,59 +71,37 @@ function renderRecipe(data) {
                                 Amount
                             </th>
                             <th>
-                                Percentage of Daily Needs*
+                                % of Daily Needs*
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Calories
-                            </td>
-                            <td>
-                                ${nutrients[0].amount} kcal
-                            </td>
-                            <td>
-                                ${nutrients[0].percentOfDailyNeeds}%
-                            </td>
-                        </tr>
-                        <tr class="table-active">
-                            <td>
-                                Fat
-                            </td>
-                            <td>
-                                ${nutrients[1].amount} grams
-                            </td>
-                            <td>
-                                ${nutrients[1].percentOfDailyNeeds}%
-                            </td>
-                        </tr>
-                        <tr class="table-success">
-                            <td>
-                                Carbs
-                            </td>
-                            <td>
-                                ${nutrients[3].amount} grams
-                            </td>
-                            <td>
-                                ${nutrients[3].percentOfDailyNeeds}%
-                            </td>
-                        </tr>
-                        <tr class="table-warning">
-                            <td>
-                                Protein
-                            </td>
-                            <td>
-                                ${nutrients[8].amount} grams
-                            </td>
-                            <td>
-                                ${nutrients[8].percentOfDailyNeeds}%
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody>`
+    nutrients.forEach(function (nutrient) {
+        if (nutrient.amount.toFixed(3) == 0) {
+            macros += ""
+        } else {
+            macros +=
+
+            `<tr>
+                <td>
+                    ${nutrient.title}
+                </td>
+                <td>
+                    ${nutrient.amount.toFixed(1)} ${nutrient.unit}
+                </td>
+                <td>
+                    ${nutrient.percentOfDailyNeeds.toFixed(1)}%
+                </td>
+            </tr>`
+            }
+    });
+
+    macros = macros + 
+            `       </tbody>
                 </table>
             </div>
         </div>`
+
 
 // Finds the method for the recipe
     let instructionSteps = data.analyzedInstructions[0].steps;

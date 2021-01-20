@@ -23,12 +23,44 @@ function renderRecipe(data) {
     let nutrients = data.nutrition.nutrients;
     rating = Math.round(data.spoonacularScore/10) * 10;
     // Creates variable with HTML elements to render on the page
-        
+    let calPerPortion = nutrients[0].amount/data.servings;
     let recipeOutput = `
         <div class="row recipe-render">    
             <div class="col-sm-12 col-md-6">
-                <div class="image-wrapper">
-                    <img src="${data.image}" class="img-fluid img-responsive rounded" alt="${data.title}">
+                <div class="card card-recipe">
+                    <div class="image-wrapper">
+                        <img src="${data.image}" class="card-img-top img-fluid img-responsive rounded" alt="${data.title}">
+                    </div>
+                    <div class="card-header">
+                        <div class="title-wrapper text-center">
+                                <h4 class="card-title recipe-title">${data.title}</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div>
+                                <div class="stars-outer">
+                                    <div class="stars-inner" style="width:${rating}%"></div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div><i class="far fa-clock"></i> - ${data.readyInMinutes} minutes
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div><i class="fas fa-thumbs-up"></i> - ${data.aggregateLikes} likes
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div><i class="fas fa-cookie-bite"></i> - ${calPerPortion.toFixed(1)} kcal per portion
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div><i class="fas fa-weight"></i> WW SmartPoints - ${data.weightWatcherSmartPoints} points
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div><i class="fas fa-users"></i> - ${data.servings} portion(s)
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>`
     
@@ -39,52 +71,24 @@ function renderRecipe(data) {
                 <div class="card text-center">
                     <div class="card-header">
                         <div class="title-wrapper text-center">
-                                <h4 class="card-title recipe-title">${data.title}</h4>
+                            <h4 class="card-title"> Nutritional Information </h4>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="recipe-info">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div>
-                                    <div class="stars-outer">
-                                        <div class="stars-inner" style="width:${rating}%"></div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div><i class="far fa-clock"></i> - ${data.readyInMinutes} minutes
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div><i class="fas fa-thumbs-up"></i> - ${data.aggregateLikes} likes
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div><i class="fas fa-cookie-bite"></i> - ${nutrients[0].amount.toFixed(1)} kcal
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div><i class="fas fa-weight"></i> WW SmartPoints - ${data.weightWatcherSmartPoints} points
-                                 </li>
-                                 <li class="list-group-item">
-                                    <div class="md-v-line"></div><i class="fas fa-users"></i> - ${data.servings} portion(s)
-                                </li>
-                            </ul>
-                        </div>
-                        <h5 class="card-title"> Macros: </h5>
-                        <div class="macros-wrapper">
-                            <ul class="list-group-item list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div> - Fat: ${nutrients[1].amount.toFixed(1)} grams
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div> - Carbs: ${nutrients[3].amount.toFixed(1)} grams
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div> - Protein: ${nutrients[8].amount.toFixed(1)} grams
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul class="list-group-item list-group-flush">
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div> - Fat: ${Math.round(nutrients[1].amount/data.servings)} grams per portion
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div> - Carbs: ${Math.round(nutrients[3].amount/data.servings)} grams per portion
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div> - Protein: ${Math.round(nutrients[8].amount/data.servings)} grams per portion
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button>
+                            </li>
+                        </ul>
                     </div>  
                 </div>
                 <table class="table table-sm table-hover collapse" id="table-collapse">
@@ -113,10 +117,10 @@ function renderRecipe(data) {
                     ${nutrient.title}
                 </td>
                 <td>
-                    ${nutrient.amount.toFixed(1)} ${nutrient.unit}
+                    ${Math.round(nutrient.amount/data.servings)} ${nutrient.unit}
                 </td>
                 <td>
-                    ${nutrient.percentOfDailyNeeds.toFixed(1)}%
+                    ${Math.round(nutrient.percentOfDailyNeeds/data.servings)}%
                 </td>
             </tr>`
             }
@@ -134,7 +138,7 @@ function renderRecipe(data) {
     let instructionOutput = 
    
     `   
-    <div class="col-md-8 order-md-1 method-list"> 
+    <div class="col-sm-12 col-md-8 order-md-1 method-list"> 
         <h3 class="section-title"> Method: </h3>
         <ol>`
 
@@ -158,14 +162,14 @@ function renderRecipe(data) {
     let ingredients = data.extendedIngredients
     let ingredientOutput = `
     <div class="row">
-        <div class="col-md-4 order-md-12 ingredient-list">
+        <div class="col-sm-12 col-md-4 order-md-12 ingredient-list">
             <h2> Ingredients:</h2>
             <ul class="ingredient-detail">`
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
         ingredientOutput +=
            
-        `<li class="list-item">${ingredient.amount.toFixed(1)} ${ingredient.unit} ${ingredient.name}</li>`
+        `<li class="list-item">${Math.round(ingredient.amount)} ${ingredient.unit} ${ingredient.name}</li>`
 
     });
     // Re-defines the variable and adds the closing HTML tag

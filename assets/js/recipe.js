@@ -77,13 +77,13 @@ function renderRecipe(data) {
                     <div class="card-body">
                         <ul class="list-group-item list-group-flush">
                             <li class="list-group-item">
-                                <div class="md-v-line"></div> - Fat: ${Math.round(nutrients[1].amount/data.servings)} grams per portion
+                                <div class="md-v-line"></div> - Fat: ${round(nutrients[1].amount/data.servings,1)} grams per portion
                             </li>
                             <li class="list-group-item">
-                                <div class="md-v-line"></div> - Carbs: ${Math.round(nutrients[3].amount/data.servings)} grams per portion
+                                <div class="md-v-line"></div> - Carbs: ${round(nutrients[3].amount/data.servings,1)} grams per portion
                             </li>
                             <li class="list-group-item">
-                                <div class="md-v-line"></div> - Protein: ${Math.round(nutrients[8].amount/data.servings)} grams per portion
+                                <div class="md-v-line"></div> - Protein: ${round(nutrients[8].amount/data.servings,1)} grams per portion
                             </li>
                             <li class="list-group-item">
                                 <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button>
@@ -117,10 +117,10 @@ function renderRecipe(data) {
                     ${nutrient.title}
                 </td>
                 <td>
-                    ${Math.round(nutrient.amount/data.servings)} ${nutrient.unit}
+                    ${round(nutrient.amount/data.servings,2)} ${nutrient.unit}
                 </td>
                 <td>
-                    ${Math.round(nutrient.percentOfDailyNeeds/data.servings)}%
+                    ${round(nutrient.percentOfDailyNeeds/data.servings,2)}%
                 </td>
             </tr>`
             }
@@ -183,3 +183,8 @@ function renderRecipe(data) {
     window.location.href = "recipe.html";
 }
 
+
+// How to round integers with decimal precision - [Rounding Decimals in JavaScript] code found on: https://www.jacklmoore.com/notes/rounding-in-javascript/
+function round(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}

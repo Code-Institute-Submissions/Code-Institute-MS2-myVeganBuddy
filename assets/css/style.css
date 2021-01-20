@@ -15,10 +15,10 @@ ul {
 
 
 /* Method */
-
+/*
 .method-list {
   max-width: 80vh;
-}
+}*/
 
 /* Ingredient List */
 
@@ -28,7 +28,7 @@ ul {
 
 /* Recipe Info */
 
-.recipe-info {
+.card-recipe {
   text-align: center;
   margin-bottom: 30px;
 }

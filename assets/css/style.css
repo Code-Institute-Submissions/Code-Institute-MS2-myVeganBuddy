@@ -9,9 +9,9 @@ ul {
 
 /* Recipe Render */
 
-/*.recipe-render {
- margin-top: 30%;
-} */
+.recipe-render {
+ margin-bottom: 50px;
+} 
 
 
 /* Method */
@@ -28,9 +28,13 @@ ul {
 
 /* Recipe Info */
 
+
+.card-header {
+  border: 1px solid rgba(0, 0, 0, .125);
+}
+
 .card-recipe {
   text-align: center;
-  margin-bottom: 30px;
 }
 
 

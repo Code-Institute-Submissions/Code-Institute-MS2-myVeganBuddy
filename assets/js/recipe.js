@@ -1,5 +1,4 @@
 
-
 // Passes the ID property as a parameter to request the particular recipe and renders to the HTML placeholder element
 function requestRecipe(recipeId) {
 
@@ -167,10 +166,17 @@ function renderRecipe(data) {
             <ul class="ingredient-detail">`
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
-        ingredientOutput +=
-           
-        `<li class="list-item">${Math.round(ingredient.amount)} ${ingredient.unit} ${ingredient.name}</li>`
+        
+        if (ingredient.amount < 1 || ingredient.amount > 0 ) {
 
+            ingredient.amount = decimalToFraction(ingredient.amount).display;
+        } else {
+            ingredient.amount = Math.round(ingredient.amount);
+        }
+
+        ingredientOutput +=
+
+        `<li class="list-item">${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
     });
     // Re-defines the variable and adds the closing HTML tag
     ingredientOutput = ingredientOutput +
@@ -188,3 +194,35 @@ function renderRecipe(data) {
 function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
+
+
+// How to transform integers with decimal points into fractions - code found on: https://gist.github.com/redteam-snippets/3934258
+function gcd(a, b) {
+	return (b) ? gcd(b, a % b) : a;
+}
+var decimalToFraction = function (_decimal) {
+    if (_decimal == parseInt(_decimal)) {
+        return {
+            top: parseInt(_decimal),
+            bottom: 1,
+            display: parseInt(_decimal) + '/' + 1
+        };
+    }
+    else {
+        var top = _decimal.toString().includes(".") ? _decimal.toString().replace(/\d+[.]/, '') : 0;
+        var bottom = Math.pow(10, top.toString().replace('-','').length);
+        if (_decimal >= 1) {
+            top = +top + (Math.floor(_decimal) * bottom);
+        }
+        else if (_decimal <= -1) {
+            top = +top + (Math.ceil(_decimal) * bottom);
+        }
+
+        var x = Math.abs(gcd(top, bottom));
+        return {
+            top: (top / x),
+            bottom: (bottom / x),
+            display: (top / x) + '/' + (bottom / x)
+        };
+    }
+};

@@ -33,7 +33,7 @@ function renderRecipe(data) {
                     </div>
                     <div class="card-header">
                         <div class="title-wrapper text-center">
-                                <h4 class="card-title recipe-title">${data.title}</h4>
+                                <h4 class="card-title section-title">${data.title}</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -71,11 +71,11 @@ function renderRecipe(data) {
                 <div class="card text-center">
                     <div class="card-header">
                         <div class="title-wrapper text-center">
-                            <h4 class="card-title"> Nutritional Information </h4>
+                            <h4 class="section-title"> Nutritional Information </h4>
                         </div>
                     </div>
                     <div class="card-body">
-                        <ul class="list-group- list-group-flush">
+                        <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="md-v-line"></div> - Fat: ${round(nutrients[1].amount/data.servings,1)} grams per portion
                             </li>
@@ -86,7 +86,7 @@ function renderRecipe(data) {
                                 <div class="md-v-line"></div> - Protein: ${round(nutrients[8].amount/data.servings,1)} grams per portion
                             </li>
                             <li class="list-group-item">
-                                <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button>
+                                <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button><br><i class="fas fa-arrow-circle-down fa-2x"></i>
                             </li>
                         </ul>
                     </div>  
@@ -139,15 +139,15 @@ function renderRecipe(data) {
    
     `   
     <div class="col-sm-12 col-md-8 order-md-1 method-list"> 
-        <h3 class="section-title"> Method: </h3>
-        <ol>`
+        <h4 class="section-title"> Method: </h4>
+        <ol class="step-list">`
 
     instructionSteps.forEach(function(step) {
        
         instructionOutput +=
 
         `<li class="list-item">
-            ${step.step}
+             ${step.step}
         </li>`
     })
 
@@ -161,9 +161,9 @@ function renderRecipe(data) {
     // Accesses the ingredients property of the object
     let ingredients = data.extendedIngredients
     let ingredientOutput = `
-    <div class="row">
+    <div class="row method-ingredients">
         <div class="col-sm-12 col-md-4 order-md-12 ingredient-list">
-            <h2> Ingredients:</h2>
+            <h4 class="section-title"> Ingredients:</h4>
             <ul class="ingredient-detail">`
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {

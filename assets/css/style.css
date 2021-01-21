@@ -1,6 +1,16 @@
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
 ul {
   padding: 0;
   list-style: none;
+  font-weight: 800;
+}
+
+ol {
+  font-weight: 800;
 }
 
 
@@ -14,16 +24,22 @@ ul {
 } 
 
 
-/* Method */
-/*
-.method-list {
-  max-width: 80vh;
-}*/
+/* Method & Ingredient List */
 
-/* Ingredient List */
 
+.method-ingredients {
+  background-color: whitesmoke;
+  border-radius: .25rem;
+}
+
+.step-list li {
+  margin-bottom: 10px;
+  padding-left: 0;
+}
 .ingredient-list {
-  background-color: greenyellow;
+  border: 1px solid rgba(0, 0, 0, .125);
+  background-color: #fec5bb;
+  border-radius: .25rem;
 }
 
 /* Recipe Info */
@@ -44,6 +60,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Yusei Magic', sans-serif;
 }
 
 /* Table */

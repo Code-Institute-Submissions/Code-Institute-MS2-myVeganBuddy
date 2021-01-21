@@ -167,9 +167,10 @@ function renderRecipe(data) {
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
         
-        if (ingredient.amount < 1 || ingredient.amount > 0 ) {
+        if (ingredient.amount.toFixed(1) < 1) {
 
             ingredient.amount = decimalToFraction(ingredient.amount).display;
+            
         } else {
             ingredient.amount = Math.round(ingredient.amount);
         }
@@ -226,3 +227,4 @@ var decimalToFraction = function (_decimal) {
         };
     }
 };
+

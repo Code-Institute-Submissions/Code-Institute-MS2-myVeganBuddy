@@ -138,6 +138,13 @@ ol {
 
 /* Buttons */
 
+.btn {
+  background-color: #f4a261;
+  border: 1px solid rgba(0, 0, 0, .125);
+  color: black;
+  font-weight: 800;
+}
+
 .button-spin {
   margin-left: 10px;
 }

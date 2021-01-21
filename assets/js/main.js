@@ -78,7 +78,7 @@ function renderResponse(data) {
                                     </ul>
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-danger" onclick="requestRecipe(${recipe.id})">Cook me</button>
+                                    <button class="btn btn-secondary" onclick="requestRecipe(${recipe.id})">Cook me!</button>
                                 </div>
                             </div>
                         </div>

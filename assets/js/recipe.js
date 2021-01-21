@@ -26,7 +26,7 @@ function renderRecipe(data) {
     let calPerPortion = nutrients[0].amount/data.servings;
     let recipeOutput = `
         <div class="row recipe-render">    
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 recipe-card">
                 <div class="card card-recipe">
                     <div class="image-wrapper">
                         <img src="${data.image}" class="card-img-top img-fluid img-responsive rounded" alt="${data.title}">
@@ -75,7 +75,7 @@ function renderRecipe(data) {
                         </div>
                     </div>
                     <div class="card-body">
-                        <ul class="list-group-item list-group-flush">
+                        <ul class="list-group- list-group-flush">
                             <li class="list-group-item">
                                 <div class="md-v-line"></div> - Fat: ${round(nutrients[1].amount/data.servings,1)} grams per portion
                             </li>

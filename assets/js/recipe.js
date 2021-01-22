@@ -64,10 +64,10 @@ function renderRecipe(data) {
             </div>`
     
     // How to create list groups with icons - Code found on https://mdbootstrap.com/snippets/jquery/mdbootstrap/949128#html-tab-view    
+        
+        let randomRecipe = getRandomRecipe()
         let macros = 
-        `
-            <div class="col-sm-12 col-md-6">
-                <div class="card text-center">
+        `       <div class="card text-center nutritional-info">
                     <div class="card-header">
                         <div class="title-wrapper text-center">
                             <h4 class="section-title"> Nutritional Information </h4>
@@ -185,7 +185,7 @@ function renderRecipe(data) {
     `       </ul>
         </div>`
     // Directs the variable to the html element
-    var requestedRecipe = recipeOutput + macros + ingredientOutput + instructionOutput; // Swapping column orders for different screen sizes [How to Reorder Columns with Bootstrap 4 Order Classes] - Code found on: https://bootstrapcreative.com/bootstrap-push-pull-column-ordering-tutorial/
+    var requestedRecipe = recipeOutput + randomRecipe + macros + ingredientOutput + instructionOutput; // Swapping column orders for different screen sizes [How to Reorder Columns with Bootstrap 4 Order Classes] - Code found on: https://bootstrapcreative.com/bootstrap-push-pull-column-ordering-tutorial/
     localStorage.setItem('requestedRecipe', requestedRecipe);
     window.location.href = "recipe.html";
 }
@@ -228,3 +228,47 @@ var decimalToFraction = function (_decimal) {
     }
 };
 
+function getRandomRecipe() {
+    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&limitLicense=true&tags=vegan", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
+		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+	}
+})
+    .then((response) => response.json())
+        .then((data) => renderRandom(data))
+        .catch((err) => console.log(err));
+}
+
+function renderRandom(data) {
+    data = data.recipes[0];
+    let randomRecipe = 
+
+    `<div class="col-sm-12 col-md-6">
+        <div class="card text-center">
+            <div class="card-header">
+                <div class="title-wrapper text-center">
+                    <h4 class="section-title"> MyVegan buddy recommends: </h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <img src="${data.image}" class="card-img-top img-thumbnail" alt="${data.title}">
+                <h5 class="card-title">${data.title}</h5>
+                <div class="text-center">
+                    <ul class="mt-3">
+                        <ul class="icon-list">
+                            <li><i class="fas fa-users"></i><strong> ${data.servings} portion(s)</strong></li>
+                            <li><i class="far fa-clock"></i><strong> ${data.readyInMinutes} minutes</strong></li>
+                            <li><i class="fas fa-thumbs-up></i><strong> ${data.aggregateLikes} likes</strong>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-secondary" onclick="requestRecipe(${data.id})">Cook me!</button>
+                </div>
+            </div>
+        </div>`
+
+    return randomRecipe;
+}

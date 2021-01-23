@@ -1,4 +1,3 @@
-
 body {
   font-family: 'Nunito', sans-serif;
 }
@@ -17,11 +16,18 @@ ol {
 /* ------------------------------------------------------------------- Recipe ----------------------------------------------------------------------------*/
 
 
+/*Random Recipe widget */
+
+.random-recipe {
+  width: 50%;
+  height: 50%;
+}
+
 /* Recipe Render */
 
 .recipe-render {
- margin-bottom: 50px;
-} 
+  margin-bottom: 50px;
+}
 
 .nutritional-info {
   margin-top: 20px;
@@ -39,6 +45,7 @@ ol {
   margin-bottom: 10px;
   padding-left: 0;
 }
+
 .ingredient-list {
   border: 1px solid rgba(0, 0, 0, .125);
   background-color: #fec5bb;

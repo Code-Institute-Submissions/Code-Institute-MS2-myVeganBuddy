@@ -12,6 +12,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Yusei+Magic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <script type="text/javascript" src="assets/js/recipe.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -22,8 +23,14 @@
     </div>
     <script>
         const recipeRender = document.getElementById('recipeRender');
-
+        // Creates basic HTML element structure
         recipeRender.innerHTML = localStorage.getItem("requestedRecipe");
+        
+        const randomRecipeWrapper = document.getElementById('randomRecipeWrapper')
+        randomRecipeWrapper.addEventListener("load", getRandomRecipe())
+        randomRecipeWrapper.innerHTML = localStorage.getItem('randomRecipe')
+
+        
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

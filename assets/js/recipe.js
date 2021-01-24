@@ -17,47 +17,7 @@ function requestRecipe(recipeId) {
 };
 
 
-function getRandomRecipe() {
-    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegan", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "fe8f971646msh9a61d136e93d8afp1bee14jsn2077cab49339",
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-	    }
-    
-    })
-        .then((response) => response.json())
-        .then((data) => renderRandom(data))
-        .catch((err) => alert(err));
-};
 
-function renderRandom(data) {
-    
-    data = data.recipes[0];
-    let randomRecipe = 
-
-`   
-            <div class="card-body">
-                <div class="img-wrapper random-recipe">
-                    <img src="${data.image}" class="card-img-top img-thumbnail" alt="${data.title}">
-                </div>
-                <h5 class="card-title">${data.title}</h5>
-                <div class="text-center">
-                    <ul class="mt-3">
-                        <ul class="icon-list">
-                            <li><i class="fas fa-users"></i><strong> ${data.servings} portion(s)</strong></li>
-                            <li><i class="far fa-clock"></i><strong> ${data.readyInMinutes} minutes</strong></li>
-                            <li><i class="fas fa-thumbs-up></i><strong> ${data.aggregateLikes} likes</strong>
-                        </ul>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-secondary" onclick="requestRecipe(${data.id})">Cook me!</button>
-                </div>
-            </div>
-        </div>`
-    localStorage.setItem('randomRecipe', randomRecipe);
-}
 
 function renderRecipe(data) {
     // access the nutrients property of the object
@@ -107,14 +67,18 @@ function renderRecipe(data) {
     
     // How to create list groups with icons - Code found on https://mdbootstrap.com/snippets/jquery/mdbootstrap/949128#html-tab-view    
         let macros = 
+
         `   <div class="col-sm-12 col-md-6">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <div class="title-wrapper text-center">
-                            <h4 class="section-title"> MyVegan buddy recommends: </h4>
+                <div class="d-none d-md-block">
+                    <div class="card text-center ">
+                        <div class="card-header">
+                            <div class="title-wrapper text-center">
+                                <h4 class="section-title"> MyVegan buddy recommends: </h4>
+                            </div>
                         </div>
+                        <div class="card-body" id="randomRecipeWrapper"></div>
                     </div>
-                <div id="randomRecipeWrapper"></div>
+                </div>
                 <div class="card text-center nutritional-info">
                     <div class="card-header">
                         <div class="title-wrapper text-center">
@@ -278,3 +242,40 @@ var decimalToFraction = function (_decimal) {
 };
 
 
+function getRandomRecipe() {
+    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegan", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "fe8f971646msh9a61d136e93d8afp1bee14jsn2077cab49339",
+		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+	    }
+    
+    })
+        .then((response) => response.json())
+        .then((data) => renderRandom(data))
+        .catch((err) => alert(err));
+};
+
+function renderRandom(data) {
+    
+    data = data.recipes[0];
+    let randomRecipe = 
+
+        `   
+        <div class="img-wrapper random-recipe">
+            <img src="${data.image}" class="card-img-top img-thumbnail" alt="${data.title}">
+        </div>
+        <h5 class="card-title">${data.title}</h5>
+        <div class="text-center">
+            <ul class="icon-list">
+                <li><i class="fas fa-users"></i><strong> ${data.servings} portion(s)</strong></li>
+                <li><i class="far fa-clock"></i><strong> ${data.readyInMinutes} minutes</strong></li>
+                <li><i class="fas fa-thumbs-up"></i><strong> ${data.aggregateLikes} likes</strong></li>
+            </ul>
+        </div>
+        <div class="text-center">
+            <button href="recipe.html" target="_blank" class="btn btn-secondary" onclick="requestRecipe(${data.id})">Cook me!</button>
+        </div>`
+
+    localStorage.setItem('randomRecipe', randomRecipe);
+}

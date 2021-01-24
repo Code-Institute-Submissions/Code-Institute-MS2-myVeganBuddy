@@ -180,9 +180,9 @@ function renderRecipe(data) {
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
         
-        if (ingredient.amount.toFixed(1) < 1) {
+        if (ingredient.measures.us.amount.toFixed(1) < 1) {
 
-            ingredient.amount = decimalToFraction(ingredient.amount).display;
+            ingredient.amount = decimalToFraction(ingredient.measures.us.amount).display;
             
         } else {
             ingredient.amount = Math.round(ingredient.amount);
@@ -190,7 +190,7 @@ function renderRecipe(data) {
 
         ingredientOutput +=
 
-        `<li class="list-item">${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
+        `<li class="list-item">${ingredient.amount} ${ingredient.measures.us.unitShort} ${ingredient.name}</li>`
     });
     // Re-defines the variable and adds the closing HTML tag
     ingredientOutput = ingredientOutput +
@@ -268,13 +268,13 @@ function renderRandom(data) {
         <h5 class="card-title">${data.title}</h5>
         <div class="text-center">
             <ul class="icon-list">
-                <li><i class="fas fa-users"></i><strong> ${data.servings} portion(s)</strong></li>
                 <li><i class="far fa-clock"></i><strong> ${data.readyInMinutes} minutes</strong></li>
                 <li><i class="fas fa-thumbs-up"></i><strong> ${data.aggregateLikes} likes</strong></li>
+                <li><i class="fas fa-users"></i><strong> ${data.servings} portion(s)</strong></li>
             </ul>
         </div>
         <div class="text-center">
-            <button href="recipe.html" target="_blank" class="btn btn-secondary" onclick="requestRecipe(${data.id})">Cook me!</button>
+            <button href="recipe.html" target="_blank" class="btn btn-secondary" onclick="requestRecipe(${data.id})">Try me!</button>
         </div>`
 
     localStorage.setItem('randomRecipe', randomRecipe);

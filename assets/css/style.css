@@ -19,8 +19,12 @@ ol {
 /*Random Recipe widget */
 
 .random-recipe {
+  margin-left: 22%;
   width: 50%;
   height: 50%;
+  display: flex;
+  justify-content: center;
+  border: 0;
 }
 
 /* Recipe Render */

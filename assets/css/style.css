@@ -19,6 +19,7 @@ ol {
 /*Random Recipe widget */
 
 .random-recipe {
+  margin-left: 22%;
   width: 50%;
   height: 50%;
 }

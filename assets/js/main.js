@@ -3,7 +3,7 @@
 const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex"
 const buttonApi = document.getElementById('buttonApi');
 const buttonClear = document.getElementById('buttonClear');
-const recipeList = document.getElementById('recipeList');
+
 
 
 // Sliders
@@ -17,7 +17,6 @@ maxSliders = [maxCalories, maxProtein, maxFat, maxCarbs];
 // Declaring event listeners
 buttonApi.addEventListener('click', requestAPI);
 document.addEventListener('onload',sliderOutput(maxSliders));
-buttonClear.addEventListener('click', clearContent(recipeList));
 
 
 function requestAPI() {
@@ -85,9 +84,10 @@ function renderResponse(data) {
                     </div>`
         });
     // Renders the above template into the target div element
-    recipeList.innerHTML = output;
+    var recipeResult = output;
     }
-
+    localStorage.setItem('recipeResult', recipeResult)
+    window.location.href = "result.html";
 };
 
 

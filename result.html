@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +9,18 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
             integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
             crossorigin="anonymous" />
-            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Yusei+Magic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <script type="text/javascript" src="assets/js/recipe.js"></script>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg sticky-top navbar-light"> 
         <a class="navbar-brand" href="#" data-abc="true">
             <img id="logo" src="assets/img/circle-logo.png" alt="" width="50" height="40" class="d-inline-block align-top">myVegan Buddy
         </a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> 
-            <span class="navbar-toggler-icon"></span> 
+                <span class="navbar-toggler-icon"></span> 
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto ml-auto">
@@ -32,56 +31,22 @@
             </ul>
             <form class="form-inline my-2 my-lg-0 d-none d-md-block"> 
                 <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Spin</button> 
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button> 
             </form>
         </div>
     </nav>
+
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 search-bar">
-                <div id="search-wrapper">
-                    <input type="text" name="searchBar" id="searchBar" placeholder="Ingredients..." />
-                </div>
-                <div class="text-center mt-3">
-                    <input id="buttonApi" class="btn btn-success button-spin" type="submit" value="Spin">
-                    <button class="btn btn-success" data-toggle="collapse" data-target="#rangeCollapse">Advanced Search</button>
-                </div>
-            </div>
-        </div>
-        <div class="row collapse range" id="rangeCollapse">
-            <div class="col-12">
-                <div class="range-wrapper">
-                    <label for="maxCalories" class="form-label">Max Calories</label>
-                    <input type="range" class="slider" value="2000" min="0" max="2000" id="maxCalories">
-                    <div id="maxCaloriesOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxProtein" class="form-label">Max Protein</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
-                    <div id="maxProteinOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxFat" class="form-label">Max Fat</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
-                    <div id="maxFatOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxCarbs" class="form-label">Max Carbs</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
-                    <div id="maxCarbsOutput"></div>
-                </div>
-            </div>
-        </div>
+        <div id="recipeList"></div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"
-        defer></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/recipe.js"></script>
-    <footer class="footer-inder">
+    <script> 
+
+    const recipeList = document.getElementById('recipeList');
+
+    recipeList.innerHTML = localStorage.getItem("recipeResult");
+
+    </script>
+    <footer>
         <div class="container-fluid d-none d-md-block container-footer-md">
             <div class="row">
                 <div class="col-sm-6">
@@ -142,8 +107,11 @@
             </div>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"
+        defer> </script>
 </body>
-
 </html>
-
-

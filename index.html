@@ -31,8 +31,8 @@
                 <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Social</a> </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 d-none d-md-block"> 
-                <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Spin</button> 
+                <input class="form-control mr-sm-2" id="searchNav" type="text" placeholder="Search"> 
+                <button class="btn btn-success my-2 my-sm-0" type="submit" onclick="requestAPI(searchNav)">Spin</button> 
             </form>
         </div>
     </nav>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="text-center mt-3">
                     <input id="buttonApi" class="btn btn-success button-spin" type="submit" value="Spin">
-                    <button class="btn btn-secondary" data-toggle="collapse" data-target="#rangeCollapse">Advanced Search</button>
+                    <button class="btn btn-secondary" data-toggle="collapse" data-target="#rangeCollapse">Refined Search</button>
                 </div>
             </div>
         </div>

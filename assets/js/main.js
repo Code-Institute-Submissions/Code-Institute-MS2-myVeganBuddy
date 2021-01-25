@@ -4,6 +4,7 @@ const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes
 const buttonApi = document.getElementById('buttonApi');
 const buttonClear = document.getElementById('buttonClear');
 const searchBar = document.getElementById('searchBar');
+const searchNav = document.getElementById('searchNav');
 
 
 
@@ -16,14 +17,20 @@ maxSliders = [maxCalories, maxProtein, maxFat, maxCarbs];
 
 
 // Declaring event listeners
-buttonApi.addEventListener('click', requestAPI);
+buttonApi.addEventListener('click', function() {
+    requestAPI(searchBar)
+});
+buttonNav.addEventListener('click', function() {
+    requestAPI(searchNav)
+});
 document.addEventListener('onload',sliderOutput(maxSliders));
 
 
 
-function requestAPI() {
+function requestAPI(search) {
     // Gets the search query and passes as a parameter to the Request
-    var searchString = document.getElementById('searchBar').value;
+    
+    var searchString = search.value;
     
     fetch(`${url}?limitLicense=true&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
@@ -35,7 +42,7 @@ function requestAPI() {
         // Transform the response into a json object
         .then((response) => response.json())
         .then((data) => renderResponse(data))
-        .catch(err => alert(err));
+        .catch(err => console.log(err));
 }
 
 // Renders the JSON object in the HTML placeholder element

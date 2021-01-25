@@ -1,6 +1,12 @@
+html,
 body {
-  font-family: 'Nunito', sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Nunito',
+    sans-serif;
 }
+
 
 ul {
   padding: 0;
@@ -204,11 +210,14 @@ ol {
 /* Nav Bar */
 
 .navbar {
-  background-color: #2a9d8f;
+  background-color: #a8dadc;
+  margin-bottom: 30px;
 }
 
 .nav-wrapper {
   padding-left: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 #logo {
@@ -217,12 +226,20 @@ ol {
 
 /* Footer */
 
+.footer-index {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .container-footer-md {
-  background-color: #2a9d8f;
+  background-color: #a8dadc;
 }
 
 .container-footer-sm {
-  background-color: #2a9d8f
+  background-color: #a8dadc;
+  color: black;
 }
 
 .social-links-md li a i {

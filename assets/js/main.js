@@ -3,6 +3,7 @@
 const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex"
 const buttonApi = document.getElementById('buttonApi');
 const buttonClear = document.getElementById('buttonClear');
+const searchBar = document.getElementById('searchBar');
 
 
 
@@ -19,10 +20,11 @@ buttonApi.addEventListener('click', requestAPI);
 document.addEventListener('onload',sliderOutput(maxSliders));
 
 
+
 function requestAPI() {
     // Gets the search query and passes as a parameter to the Request
     var searchString = document.getElementById('searchBar').value;
-
+    
     fetch(`${url}?limitLicense=true&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
         "headers": {
@@ -100,6 +102,7 @@ function sliderOutput(sliders) {
 
     })
 };
+
 
 
 

@@ -44,35 +44,47 @@
                 </div>
                 <div class="text-center mt-3">
                     <input id="buttonApi" class="btn btn-success button-spin" type="submit" value="Spin">
-                    <button class="btn btn-success" data-toggle="collapse" data-target="#rangeCollapse">Advanced Search</button>
+                    <button class="btn btn-secondary" data-toggle="collapse" data-target="#rangeCollapse">Advanced Search</button>
                 </div>
             </div>
         </div>
         <div class="row collapse range" id="rangeCollapse">
-            <div class="col-12">
-                <div class="range-wrapper">
-                    <label for="maxCalories" class="form-label">Max Calories</label>
-                    <input type="range" class="slider" value="2000" min="0" max="2000" id="maxCalories">
-                    <div id="maxCaloriesOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxProtein" class="form-label">Max Protein</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
-                    <div id="maxProteinOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxFat" class="form-label">Max Fat</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
-                    <div id="maxFatOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxCarbs" class="form-label">Max Carbs</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
-                    <div id="maxCarbsOutput"></div>
+            <div class="col-12 range-wrapper">
+                <div class="card range-wrapper" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="input-group mb-3 range-wrapper">
+                                <label for="maxCalories" class="form-label">Max Calories</label>
+                                <input type="text" value="2000" min="0" max="2000" id="maxCalories">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="range-wrapper">
+                                <label for="maxProtein" class="form-label">Max Protein</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
+                                <span class="input-group-text" id="basic-addon1"></span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="range-wrapper">
+                                <label for="maxFat" class="form-label">Max Fat</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
+                                <span class="input-group-text" id="basic-addon1"></span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="range-wrapper">
+                                <label for="maxCarbs" class="form-label">Max Carbs</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
+                                <span class="input-group-text" id="basic-addon1"></span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -81,67 +93,6 @@
         defer></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script type="text/javascript" src="assets/js/recipe.js"></script>
-    <footer class="footer-inder">
-        <div class="container-fluid d-none d-md-block container-footer-md">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h5 class="name-header-footer-md">vinnie-ordobas©</h5>
-                </div>
-                <div class="col-sm-6 about-links">
-                    <div class="d-flex justify-content-end">
-                        <ul class="list-inline social-links-md">
-                            <li class="list-inline-item">
-                                <a target="_blank" rel="noreferrer" href="http://www.facebook.com">
-                                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                                    <span class="sr-only">Facebook</span>
-                                </a>
-                            </li>
-                                <li class="list-inline-item">
-                                <a target="_blank" rel="noreferrer" href="http://www.instagram.com">
-                                    <i class="fab fa-instagram" aria-hidden="true"></i>
-                                    <span class="sr-only">Instagram</span>
-                                </a>
-                            </li>
-                                <li class="list-inline-item">
-                                <a target="_blank" rel="noreferrer" href="http://www.twitter.com">
-                                    <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                                    <span class="sr-only">Twitter</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid d-md-none">
-            <div class="card text-white bg-secondary text-center">
-                <div class="card-body container-footer-sm">
-                    <h5 class="card-title name-header-footer-sm">vinnie-ordobas©</h5>
-                    <p class="card-text">Would you like to report a bug? Reach me at viniordobas@icloud.com</p>
-                     <ul class="list-inline social-links-sm">
-                        <li class="list-inline-item">
-                            <a target="_blank" rel="noreferrer" href="http://www.facebook.com">
-                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                                <span class="sr-only">Facebook</span>
-                            </a>
-                        </li>
-                            <li class="list-inline-item">
-                            <a target="_blank" rel="noreferrer" href="http://www.instagram.com">
-                                <i class="fab fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </li>
-                            <li class="list-inline-item">
-                            <a target="_blank" rel="noreferrer" href="http://www.twitter.com">
-                                <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                                <span class="sr-only">Twitter</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>

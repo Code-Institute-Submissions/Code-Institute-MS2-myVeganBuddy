@@ -101,9 +101,5 @@ function sliderOutput(sliders) {
     })
 };
 
-// Clears target element for the recipes
-function clearContent(element){
-    element.innerHTML = "";
-};
 
 

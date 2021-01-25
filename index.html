@@ -16,6 +16,26 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light"> 
+        <a class="navbar-brand" href="#" data-abc="true">
+            <img id="logo" src="assets/img/circle-logo.png" alt="" width="50" height="40" class="d-inline-block align-top">myVegan Buddy
+        </a> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> 
+            <span class="navbar-toggler-icon"></span> 
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto ml-auto">
+                <li class="nav-item active"> <a class="nav-link" href="index.html" data-abc="true">Home <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">contact</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Pricing</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Social</a> </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none d-md-block"> 
+                <input class="form-control mr-sm-2" id="searchNav" type="text" placeholder="Search"> 
+                <button id="buttonNav" class="btn btn-success my-2 my-sm-0" type="submit">Spin</button> 
+            </form>
+        </div>
+    </nav>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 search-bar">
@@ -23,40 +43,48 @@
                     <input type="text" name="searchBar" id="searchBar" placeholder="Ingredients..." />
                 </div>
                 <div class="text-center mt-3">
-                    <input id="buttonApi" class="btn btn-secondary button-spin" type="submit" value="Spin">
-                    <button class="btn btn-secondary" data-toggle="collapse" data-target="#rangeCollapse">Advanced Search</button>
-                    <button id="buttonClear" class="btn btn-secondary">Clear</button>
+                    <input id="buttonApi" class="btn btn-success button-spin" type="submit" value="Spin">
+                    <button class="btn btn-secondary" data-toggle="collapse" data-target="#rangeCollapse">Refined Search</button>
                 </div>
             </div>
         </div>
         <div class="row collapse range" id="rangeCollapse">
-            <div class="col-12">
-                <div class="range-wrapper">
-                    <label for="maxCalories" class="form-label">Max Calories</label>
-                    <input type="range" class="slider" value="2000" min="0" max="2000" id="maxCalories">
-                    <div id="maxCaloriesOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxProtein" class="form-label">Max Protein</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
-                    <div id="maxProteinOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxFat" class="form-label">Max Fat</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
-                    <div id="maxFatOutput"></div>
-                </div>
-                <div class="range-wrapper">
-                    <label for="maxCarbs" class="form-label">Max Carbs</label>
-                    <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
-                    <div id="maxCarbsOutput"></div>
+            <div class="col-12 range-wrapper">
+                <div class="card range-wrapper" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="input-group mb-3 range-wrapper">
+                                <label for="maxCalories" class="form-label">Max Calories</label>
+                                <input type="text" value="2000" min="0" max="2000" id="maxCalories">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="range-wrapper">
+                                <label for="maxProtein" class="form-label">Max Protein</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
+                                <span class="input-group-text" id="basic-addon1"></span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="range-wrapper">
+                                <label for="maxFat" class="form-label">Max Fat</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
+                                <span class="input-group-text" id="basic-addon1"></span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="range-wrapper">
+                                <label for="maxCarbs" class="form-label">Max Carbs</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
+                                <span class="input-group-text" id="basic-addon1"></span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-            <div id="recipeList"></div>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -65,7 +93,6 @@
         defer></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script type="text/javascript" src="assets/js/recipe.js"></script>
-    
 </body>
 
 </html>

@@ -1,6 +1,12 @@
+html,
 body {
-  font-family: 'Nunito', sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Nunito',
+    sans-serif;
 }
+
 
 ul {
   padding: 0;
@@ -19,8 +25,12 @@ ol {
 /*Random Recipe widget */
 
 .random-recipe {
+  margin-left: 22%;
   width: 50%;
   height: 50%;
+  display: flex;
+  justify-content: center;
+  border: 0;
 }
 
 /* Recipe Render */
@@ -195,4 +205,85 @@ ol {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #f8ce0b;
+}
+
+/* Nav Bar */
+
+.navbar {
+  background-color: #a8dadc;
+  margin-bottom: 30px;
+}
+
+.nav-wrapper {
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  margin-right: 5px;
+}
+
+/* Footer */
+
+.footer-index {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.container-footer-md {
+  background-color: #a8dadc;
+}
+
+.container-footer-sm {
+  background-color: #a8dadc;
+  color: black;
+}
+
+.social-links-md li a i {
+  margin-top: 15px;
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+  padding: 12px 0;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 10px;
+  text-align: center;
+  color: #e63946;
+  background: whitesmoke;
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links-sm li a i {
+  margin-top: 15px;
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+  padding: 12px 0;
+  border-radius: 50%;
+  font-size: 13px;
+  line-height: 7px;
+  text-align: center;
+  color: #e63946;
+  background: whitesmoke;
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+  background: #e63946;
+}
+
+.name-header-footer-md {
+  text-transform: uppercase;
+  margin-top: 18px;
+  margin-left: 15px;
 }

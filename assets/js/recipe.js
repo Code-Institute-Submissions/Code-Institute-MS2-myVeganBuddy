@@ -73,7 +73,7 @@ function renderRecipe(data) {
                     <div class="card text-center ">
                         <div class="card-header">
                             <div class="title-wrapper text-center">
-                                <h4 class="section-title"> MyVegan buddy recommends: </h4>
+                                <h4 class="section-title"> Recommendation of the day: </h4>
                             </div>
                         </div>
                         <div class="card-body" id="randomRecipeWrapper"></div>

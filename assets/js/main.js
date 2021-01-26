@@ -51,7 +51,10 @@ function renderResponse(data) {
     data = data.results;
     // Error handling
     if (data.length === 0) {
-        alert('No results found!');
+        var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+        resultModal.toggle()
+        // How to early break of a function - code found in: [https://stackoverflow.com/questions/3330193/early-exit-from-function];
+        return;
     } else {
         let output = `
         <h2 class="title text-center">Results</h2><br>

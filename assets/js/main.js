@@ -1,8 +1,7 @@
 
 // Declaring constants
 const url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex"
-const buttonApi = document.getElementById('buttonApi');
-const buttonClear = document.getElementById('buttonClear');
+const buttonApi = document.getElementsByClassName('buttonApi')[0];
 const searchBar = document.getElementById('searchBar');
 const searchNav = document.getElementById('searchNav');
 
@@ -20,9 +19,6 @@ maxSliders = [maxProtein, maxFat, maxCarbs];
 buttonApi.addEventListener('click', function() {
     requestAPI(searchBar)
 });
-buttonNav.addEventListener('click', function() {
-    requestAPI(searchNav)
-});
 
 
 
@@ -31,7 +27,7 @@ function requestAPI(search) {
     
     var searchString = search.value;
     
-    fetch(`${url}?limitLicense=true&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
+    fetch(`${url}?limitLicense=true&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
@@ -43,6 +39,7 @@ function requestAPI(search) {
         .then((data) => renderResponse(data))
         .catch(err => console.log(err));
 }
+
 
 // Renders the JSON object in the HTML placeholder element
 function renderResponse(data) {
@@ -105,9 +102,5 @@ function renderResponse(data) {
     window.location.href = "result.html";
 };
 
-
-
-function updateTextInput(node, val) {
-    node.nextSibling.nextSibling.value = val
-}
+// How to output the value of a slider - code found/adapted on: [https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value]
 

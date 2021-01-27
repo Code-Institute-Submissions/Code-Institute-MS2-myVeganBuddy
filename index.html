@@ -43,43 +43,8 @@
                     <input type="text" name="searchBar" id="searchBar" placeholder="Ingredients..." />
                 </div>
                 <div class="text-center mt-3">
-                    <input id="buttonApi" class="btn btn-success button-spin" type="submit" value="Spin">
-                    <button class="btn btn-secondary" data-toggle="collapse" data-target="#rangeCollapse">Refined Search</button>
-                </div>
-            </div>
-        </div>
-        <div class="row collapse range" id="rangeCollapse">
-            <div class="col-12 range-wrapper">
-                <div class="card range-wrapper" style="width: 18rem;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="input-group mb-3 range-wrapper">
-                                <label for="maxCalories" class="form-label">Max Calories</label>
-                                <input type="text" value="2000" min="0" max="2000" id="maxCalories">
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="range-wrapper">
-                                <label for="maxProtein" class="form-label">Max Protein</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProtein">
-                                <span class="input-group-text" id="basic-addon1"></span>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="range-wrapper">
-                                <label for="maxFat" class="form-label">Max Fat</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFat">
-                                <span class="input-group-text" id="basic-addon1"></span>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="range-wrapper">
-                                <label for="maxCarbs" class="form-label">Max Carbs</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbs">
-                                <span class="input-group-text" id="basic-addon1"></span>
-                            </div>
-                        </li>
-                    </ul>
+                    <input class="btn btn-success button-spin buttonApi" type="submit" value="Spin">
+                    <a class="btn btn-secondary" href="refined_search.html">Refined Search</a>
                 </div>
             </div>
         </div>

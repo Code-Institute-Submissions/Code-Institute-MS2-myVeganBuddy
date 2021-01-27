@@ -13,7 +13,7 @@ var maxCalories = document.getElementById('maxCalories');
 var maxProtein = document.getElementById('maxProtein');
 var maxFat = document.getElementById('maxFat');
 var maxCarbs = document.getElementById('maxCarbs');
-maxSliders = [maxCalories, maxProtein, maxFat, maxCarbs];
+maxSliders = [maxProtein, maxFat, maxCarbs];
 
 
 // Declaring event listeners
@@ -23,7 +23,6 @@ buttonApi.addEventListener('click', function() {
 buttonNav.addEventListener('click', function() {
     requestAPI(searchNav)
 });
-document.addEventListener('onload',sliderOutput(maxSliders));
 
 
 
@@ -107,16 +106,8 @@ function renderResponse(data) {
 };
 
 
-// Shows current value of sliders
-function sliderOutput(sliders) {
-    sliders.forEach(function (slider) {
-        slider.oninput = function () {
-            slider.nextElementSibling.innerHTML = slider.value;
-        }
 
-    })
-};
-
-
-
+function updateTextInput(node, val) {
+    node.nextSibling.nextSibling.value = val
+}
 

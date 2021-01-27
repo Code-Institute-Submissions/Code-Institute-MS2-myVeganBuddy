@@ -133,7 +133,15 @@ ol {
 }
 
 .slider-output {
-  max-width: 25%;
+  max-width: 40%;
+}
+
+.refined-search {
+  margin-right: 20%;
+}
+
+#maxFatLabel {
+  margin-right: 30px;
 }
 
 /* Search bar */

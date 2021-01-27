@@ -38,28 +38,44 @@
         <div class="row">
             <div class="col-12">
                 <form class="row">
-                    <div class="col-md-4 ms-md-auto">
-                        <label for="recipe-form" class="form-label">Recipes including:</label>
-                        <input type="email" class="form-control" id="recipe-form">
+                    <div class="col-md-9 offset-md-3">
+                        <label for="recipe-form" class="form-label">with these words in the title:</label>
+                        <input type="text" class="form-control" id="recipe-form">
                     </div>
-                    <div class="col-md-4 ms-md-auto">
-                        <label for="ingredient-form" class="form-label">Ingredients including:</label>
-                        <input type="password" class="form-control" id="ingredient-form">
+                    <div class="col-md-9 offset-md-3">
+                        <label for="ingredient-form" class="form-label">including these ingredients:</label>
+                        <input type="text" class="form-control" id="ingredient-form">
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputCity" class="form-label">Max Calories</label>
-                        <input type="text" class="form-control" id="inputCity">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="allergens" class="form-label">Allergens</label><br>
+                    <div class="col-md-5 offset-md-3">
+                        <label for="allergens" class="form-label">with allergens:</label><br>
                         <select id="allergens" class="form-select">
                         <option selected>Choose...</option>
                         <option>Gluten</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                    <div class="col-md-3">
+                        <label for="inputCity" class="form-label">with total amount of calories:</label>
+                        <input type="text" class="form-control" id="maxCalories">
+                    </div>
+                    <div class="col-md-4 offset-md-3">
+                        <label for="macros" class="form-label">with these macros:</label>
+                        <ul class="list-group" id="macros">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <label for="maxProtein" class="form-label">Protein</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" onchange="updateTextInput(this,this.value)">
+                                <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxProtein" size="2" value="">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <label for="maxFat" class="form-label">Fat</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" onchange="updateTextInput(this,this.value)">
+                                <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxFat" size="2" value="">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <label for="maxCarbs" class="form-label">Carbs</label>
+                                <input type="range" class="slider" value="100" min="0" max="100" onchange="updateTextInput(this,this.value)">
+                                <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxCarbs" size="2" value="">
+                            </li>
+                            </ul>
                     </div>
                     <div class="col-12">
                         <div class="form-check">
@@ -70,7 +86,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <button type="submit" class="btn btn-primary" id="buttonApi">Sign in</button>
                     </div>
                 </form>
             </div>
@@ -138,5 +154,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

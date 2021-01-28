@@ -182,7 +182,7 @@ Through some research, I've found that Gym websites praise contrast between colo
 > - Bug encountered when rendering "bootstrap-card-group" on large screens. To solve this issue, I have used bootstrap grid layout (*.col-12).
 > - Bug found on filling FontAwesome starts according to rating from API. Found solution on: [A Simple JavaScript Technique for Filling Star Ratings](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450).
 > - Found a bug trying to render the recipe to another HTML page. The turnaround was offered by Victor (my mentor), by saving the target HTML element to 'localStorage', changing to another page using 'window.location.href' property and loading the saved content from 'localStorage'.  
-> - 
+> - Bug requesting recipe from advanced_search = throwing errors such as "Illegal Invocation" or "Failed to fetch" for no apparent reason
 > - 
 > - 
 > -

@@ -13,27 +13,17 @@ if (wLocation.toString().includes('index.html')) {
     buttonApi.addEventListener('click', function() {
         requestAPI(searchBar)
     });
-
-};
-
-if (wLocation.toString().includes('refined_search.html')) {
-    const buttonRes = document.getElementById('buttonRes');
-    var recipeQuery = document.getElementById('recipe-form').value;
-    var ingredientQuery = document.getElementById('ingredient-form').value;
-    var allergens = document.getElementById('allergens').value;
-    
-    // Sliders
-    var maxCalories = document.getElementById('maxCalories');
-    var maxProtein = document.getElementById('maxProtein');
-    var maxFat = document.getElementById('maxFat');
-    var maxCarbs = document.getElementById('maxCarbs');
-    maxSliders = [maxProtein, maxFat, maxCarbs];
-    
-    // Declaring event listeners
-    buttonRes.addEventListener('click',requestRefined);
 }
 
+const buttonRes = document.getElementById('buttonRes');
+const recipeQuery = document.getElementById('recipe-form');
+const ingredientQuery = document.getElementById('ingredient-form');
+const allergens = document.getElementById('allergens');
+const form = document.forms[1];
 
+// Declaring event listeners
+//buttonRes.addEventListener('click',requestRefined);
+buttonRes.addEventListener('click',handleSubmit);
 
 
 // Sliders
@@ -64,14 +54,9 @@ function requestAPI(search) {
         .catch((err) => errorHandling(err));
 }
 
-function errorHandling(err) {
-    alert(err);
-}
+function requestRefined(asString) {
 
-function requestRefined() {
-
-
-     fetch(`${url}?limitLicense=true&offset=0&number=12&query=${recipeQuery}&diet=vegan&includeIngredients=${ingredientQuery}&intolerances=${allergens}&ranking=2&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&addRecipeInformation=true`, {
+     fetch(`${url}?limitLicense=true&offset=0&number=12&${asString}&ranking=2&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&addRecipeInformation=true`, {
 	"method": "GET",
 	 "headers": {
             "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
@@ -154,5 +139,18 @@ function renderResponse(data) {
     window.location.href = "result.html";
 };
 
-// How to output the value of a slider - code found/adapted on: [https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value]
 
+// Handler functions
+
+function handleSubmit(event,cb) {
+    event.preventDefault();
+    const formData = new FormData(event.path[2]);
+    const data = [...formData.entries()];
+    const asString = new URLSearchParams(formData).toString();
+    console.log(asString);
+    
+}
+
+function errorHandling(err) {
+    alert(err);
+}

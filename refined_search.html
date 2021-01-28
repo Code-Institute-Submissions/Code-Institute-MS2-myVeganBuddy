@@ -54,28 +54,28 @@
                         <label for="maxCalories" class="form-label">with total amount of calories:</label>
                         <input type="text" class="form-control" id="maxCalories">
                     </div>
-                    <div class="col-md-4 offset-md-3">
+                    <div class="col-md-5 offset-md-3">
                         <label for="macros" class="form-label">with these macros:</label>
                         <ul class="list-group" id="macros">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <label for="maxProtein" class="form-label">Protein</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" onchange="updateTextInput(this,this.value)">
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProteinOutput" onchange="sliderOutput(maxSliders)">
                                 <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxProtein" size="2" value="">
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <label for="maxFat" class="form-label" id="maxFatLabel">Fat</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" onchange="updateTextInput(this,this.value)">
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFatOutput" onchange="sliderOutput(maxSliders)">
                                 <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxFat" size="2" value="">
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <label for="maxCarbs" class="form-label">Carbs</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" onchange="updateTextInput(this,this.value)">
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbsOutput" onchange="sliderOutput(maxSliders)">
                                 <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxCarbs" size="2" value="">
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-4 offset-md-3 mt-5">
-                        <button type="submit" class="btn btn-primary buttonApi">Spin</button>
+                        <button type="button" class="btn btn-primary" id="buttonRes">Spin</button>
                     </div>
                 </form>
             </div>
@@ -143,7 +143,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/refined.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

@@ -16,13 +16,7 @@ if (wLocation.toString().includes('index.html')) {
 }
 
 const buttonRes = document.getElementById('buttonRes');
-const recipeQuery = document.getElementById('recipe-form');
-const ingredientQuery = document.getElementById('ingredient-form');
-const allergens = document.getElementById('allergens');
-const form = document.forms[1];
-
 // Declaring event listeners
-//buttonRes.addEventListener('click',requestRefined);
 buttonRes.addEventListener('click',handleSubmit);
 
 
@@ -41,7 +35,7 @@ function requestAPI(search) {
     
     var searchString = search.value;
     
-    fetch(`${url}?limitLicense=true&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
+    fetch(`${url}?limitLicense=false&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
@@ -54,9 +48,18 @@ function requestAPI(search) {
         .catch((err) => errorHandling(err));
 }
 
-function requestRefined(asString) {
+function requestRefined(formFields) {
 
-     fetch(`${url}?limitLicense=true&offset=0&number=12&${asString}&ranking=2&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&addRecipeInformation=true`, {
+    formFields.forEach(function (field) {
+        if (field.value === "") {
+            field.value = /\w/
+        }
+    })
+    query = `&${formFields[0].name}=${formFields[0].value.toLowerCase()}`
+    ingredientsRef = `&${formFields[1].name}=${formFields[1].value.toLowerCase()}`
+    allergensRef = `&${formFields[2].name}=${formFields[2].value.toLowerCase()}`
+    
+     fetch(`${url}?limitLicense=true&offset=0&number=12${query}&diet=vegan${ingredientsRef}${allergensRef}&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
 	"method": "GET",
 	 "headers": {
             "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
@@ -84,12 +87,7 @@ function renderResponse(data) {
     data = data.results;
     // Error handling
     if (data.length === 0) {
-        if (resultModal) {
-            resultModal.toggle()
-        } else {
-        var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
-        resultModal.toggle()
-        }
+        alert('No results!')
         // How to early break of a function - code found in: [https://stackoverflow.com/questions/3330193/early-exit-from-function];
         return;
     } else {
@@ -142,15 +140,26 @@ function renderResponse(data) {
 
 // Handler functions
 
-function handleSubmit(event,cb) {
+function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.path[2]);
-    const data = [...formData.entries()];
-    const asString = new URLSearchParams(formData).toString();
-    console.log(asString);
+    let recipeForm = document.getElementById('recipe-form');
+    let ingredientForm = document.getElementById('ingredient-form');
+    let allergens = document.getElementById('allergens');
+    let formFields = [recipeForm, ingredientForm, allergens];
+    let promise = new Promise(function (resolve, reject) {
+        if (formFields) {
+            resolve()
+        } else {
+            reject()
+        }
+    });
+
+    promise.then(requestRefined(formFields))
+    promise.catch((err) => errorHandling(err))
     
-}
+};
 
 function errorHandling(err) {
     alert(err);
+    console.log(err);
 }

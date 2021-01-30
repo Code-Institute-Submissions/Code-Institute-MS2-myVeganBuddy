@@ -37,10 +37,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <form class="row refined-search">
+                <form class="row refined-search" id='submitForm'>
                     <div class="col-md-9 offset-md-3">
                         <label for="recipe-form" class="form-label">with these words in the title:</label>
-                        <input type="text" class="form-control" id="recipe-form" name="query" >
+                        <input type="text" class="form-control" id="recipe-form" name="query" autofocus required>
+                    </div>
+                    <div class="d-none">
+                        <input type="text" class="form-control" id="diet-form" name="diet" value="vegan">
                     </div>
                     <div class="col-md-9 offset-md-3">
                         <label for="ingredient-form" class="form-label">including these ingredients:</label>

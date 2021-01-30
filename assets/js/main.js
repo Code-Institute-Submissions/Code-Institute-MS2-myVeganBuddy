@@ -13,6 +13,7 @@ if (wLocation.toString().includes('index.html')) {
     buttonApi.addEventListener('click', function() {
         requestAPI(searchBar)
     });
+    
 }
 
 const buttonRes = document.getElementById('buttonRes');
@@ -48,18 +49,10 @@ function requestAPI(search) {
         .catch((err) => errorHandling(err));
 }
 
-function requestRefined(formFields) {
+function requestRefined(asString) {
 
-    formFields.forEach(function (field) {
-        if (field.value === "") {
-            field.value = /\w/
-        }
-    })
-    query = `&${formFields[0].name}=${formFields[0].value.toLowerCase()}`
-    ingredientsRef = `&${formFields[1].name}=${formFields[1].value.toLowerCase()}`
-    allergensRef = `&${formFields[2].name}=${formFields[2].value.toLowerCase()}`
-    
-     fetch(`${url}?limitLicense=true&offset=0&number=12${query}&diet=vegan${ingredientsRef}${allergensRef}&maxCalories=${maxCalories.value}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
+
+     fetch(`${url}?limitLicense=false&offset=0&number=12&${asString}&maxFat=${maxFat.value}&maxProtein=${maxProtein.value}&maxCarbs=${maxCarbs.value}&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
 	"method": "GET",
 	 "headers": {
             "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
@@ -140,21 +133,22 @@ function renderResponse(data) {
 
 // Handler functions
 
+// How to transform formData into an URL search parameters and feed to the request - code found on [https://ultimatecourses.com/blog/transform-formdata-into-query-string]
+
 function handleSubmit(event) {
     event.preventDefault();
-    let recipeForm = document.getElementById('recipe-form');
-    let ingredientForm = document.getElementById('ingredient-form');
-    let allergens = document.getElementById('allergens');
-    let formFields = [recipeForm, ingredientForm, allergens];
+    let form = document.forms[1]
+    const formData = new FormData(form);
+    const asString = new URLSearchParams(formData).toString();
     let promise = new Promise(function (resolve, reject) {
-        if (formFields) {
+        if (asString) {
             resolve()
         } else {
             reject()
         }
     });
 
-    promise.then(requestRefined(formFields))
+    promise.then(requestRefined(asString))
     promise.catch((err) => errorHandling(err))
     
 };

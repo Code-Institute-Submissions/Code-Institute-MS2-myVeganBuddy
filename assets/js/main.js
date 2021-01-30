@@ -14,11 +14,13 @@ if (wLocation.toString().includes('index.html')) {
         requestAPI(searchBar)
     });
     
-}
+} else {
+    const buttonRes = document.getElementById('buttonRes');
+    // Declaring event listeners
+    buttonRes.addEventListener('click',handleSubmit);
+};
 
-const buttonRes = document.getElementById('buttonRes');
-// Declaring event listeners
-buttonRes.addEventListener('click',handleSubmit);
+
 
 
 // Sliders
@@ -29,11 +31,8 @@ var maxCarbs = document.getElementById('maxCarbsOutput');
 maxSliders = [maxProtein, maxFat, maxCarbs];
 
 
-
-
 function requestAPI(search) {
     // Gets the search query and passes as a parameter to the Request
-    
     var searchString = search.value;
     
     fetch(`${url}?limitLicense=false&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
@@ -80,7 +79,9 @@ function renderResponse(data) {
     data = data.results;
     // Error handling
     if (data.length === 0) {
-        alert('No results!')
+        var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+        resultModal.toggle() 
+
         // How to early break of a function - code found in: [https://stackoverflow.com/questions/3330193/early-exit-from-function];
         return;
     } else {
@@ -137,7 +138,7 @@ function renderResponse(data) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    let form = document.forms[1]
+    let form = document.forms[0]
     const formData = new FormData(form);
     const asString = new URLSearchParams(formData).toString();
     let promise = new Promise(function (resolve, reject) {

@@ -36,6 +36,26 @@
     <div class="container-fluid">
         <div id="recipeRender"></div>
     </div>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="d-md-none">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <div class="title-wrapper text-center">
+                            <h4 class="section-title"> Recommendation of the day: </h4>
+                        </div>
+                         <div class="card-header-sm" id="random-header">
+                            <p> Would you like a recommendation? </p>
+                            <button type="submit" class="btn btn-primary" id="buttonFetch" onclick="fetchRandom()">Fetch</button>
+                        </div>
+                    </div>
+                    <div class="card-body" id="randomRecipe-sm">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         const recipeRender = document.getElementById('recipeRender');
         // Creates basic HTML element structure

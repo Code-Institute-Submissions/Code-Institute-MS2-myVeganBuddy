@@ -279,3 +279,11 @@ function renderRandom(data) {
 
     localStorage.setItem('randomRecipe', randomRecipe);
 }
+
+function fetchRandom() {
+    let randomRecipeWrapper = document.getElementById('randomRecipeWrapper')
+    let randomWrapper = document.getElementById('randomRecipe-sm');
+    randomWrapper.innerHTML = randomRecipeWrapper.innerHTML + `</div>`
+
+    document.getElementById('random-header').style.display = "none"
+}

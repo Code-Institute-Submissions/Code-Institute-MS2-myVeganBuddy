@@ -25,9 +25,9 @@ if (wLocation.toString().includes('index.html')) {
 
 // Sliders
 var maxCalories = document.getElementById('maxCalories');
-var maxProtein = document.getElementById('maxProteinOutput');
-var maxFat = document.getElementById('maxFatOutput');
-var maxCarbs = document.getElementById('maxCarbsOutput');
+var maxProtein = document.getElementById('maxProtein');
+var maxFat = document.getElementById('maxFat');
+var maxCarbs = document.getElementById('maxCarbs');
 maxSliders = [maxProtein, maxFat, maxCarbs];
 
 
@@ -64,11 +64,8 @@ function requestRefined(asString) {
         .catch(err => errorHandling(err));
 }
 
-function sliderOutput(sliders){
-    sliders.forEach(function(slider) {
-        val = slider.value
-        slider.nextSibling.nextSibling.value = val;
-    })
+function sliderOutput(event, val){
+  event.nextSibling.nextSibling.value = val;
 }
 
 

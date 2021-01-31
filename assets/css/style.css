@@ -322,4 +322,10 @@ ol {
     border: 1px solid rgba(0, 0, 0, .125);
   }
 
+  .footer-about {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }

@@ -126,6 +126,9 @@ ol {
 
 /* Ranges */
 
+.form-title {
+  margin-right: 36%;
+}
 
 .slider {
   margin-left: 10px;
@@ -137,7 +140,7 @@ ol {
 }
 
 .refined-search {
-  margin-right: 20%;
+  margin-right: 8%;
 }
 
 #maxFatLabel {
@@ -175,8 +178,12 @@ ol {
   margin-left: 10px;
 }
 
-.submit-wrapper {
-  padding-left: 20%
+.submit-wrapper-md {
+  text-align: center;
+}
+
+.submit-wrapper-sm {
+  text-align: center;
 }
 
 /* Icons */
@@ -237,7 +244,7 @@ ol {
 /* Footer */
 
 .footer-index {
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -293,7 +300,25 @@ ol {
 }
 
 .name-header-footer-md {
-  text-transform: uppercase;
   margin-top: 18px;
   margin-left: 15px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .card-header {
+    height: 100px;
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .03);
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    border: 1px solid rgba(0, 0, 0, .125);
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }

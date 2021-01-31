@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,36 +11,43 @@
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Yusei+Magic&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-light"> 
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light">
         <a class="navbar-brand" href="#" data-abc="true">
-            <img id="logo" src="assets/img/circle-logo.png" alt="" width="50" height="40" class="d-inline-block align-top">myVegan Buddy
-        </a> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> 
-                <span class="navbar-toggler-icon"></span> 
+            <img id="logo" src="assets/img/circle-logo.png" alt="" width="50" height="40"
+                class="d-inline-block align-top">myVegan Buddy
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"> <a class="nav-link" href="index.html" data-abc="true">Home <span class="sr-only">(current)</span></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">contact</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Pricing</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Social</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="index.html" data-abc="true">Home</a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="refined_search.html" data-abc="true">Refined
+                        Search <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="about.html" data-abc="true">About</a>
+                </li>
             </ul>
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row refined-search">
             <div class="col-12">
-                <form class="row refined-search" id='submitForm'>
+                <h4 class="text-center form-title">Find recipes:</h4><br>
+                <form class="row" id='submitForm'>
                     <div class="col-md-9 offset-md-3">
                         <label for="recipe-form" class="form-label">with these words in the title:</label>
-                        <input type="text" class="form-control" id="recipe-form" name="query" autofocus required>
+                        <input type="text" class="form-control" id="recipe-form" name="query" required>
                     </div>
-                    <div class="d-none">
-                        <input type="text" class="form-control" id="diet-form" name="diet" value="vegan">
+                    <div>
+                        <input type="hidden" class="form-control" id="diet-form" name="diet" value="vegan">
                     </div>
                     <div class="col-md-9 offset-md-3">
                         <label for="ingredient-form" class="form-label">including these ingredients:</label>
@@ -53,46 +61,60 @@
                         <label for="maxCalories" class="form-label">with total amount of calories:</label>
                         <input type="text" class="form-control" id="maxCalories" name="maxCalories" value="2000">
                     </div>
-                    <div class="col-md-5 offset-md-3">
+                    <div class="col-md-6 offset-md-3">
                         <label for="macros" class="form-label">with these macros:</label>
                         <ul class="list-group" id="macros">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <label for="maxProtein" class="form-label">Protein</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProteinOutput" onchange="sliderOutput(maxSliders)">
-                                <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxProtein" size="2" value="" name="maxProtein">
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProteinOutput"
+                                    onchange="sliderOutput(this,this.value)">
+                                <input class="form-control slider-output" type="number" id="maxProtein" size="2"
+                                    value="100" name="maxProtein">
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <label for="maxFat" class="form-label" id="maxFatLabel">Fat</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFatOutput" onchange="sliderOutput(maxSliders)">
-                                <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxFat" size="2" value="" name="maxFat">
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFatOutput"
+                                    onchange="sliderOutput(this,this.value)">
+                                <input class="form-control slider-output" type="number" id="maxFat" size="2" value="100"
+                                    name="maxFat">
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <label for="maxCarbs" class="form-label">Carbs</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbsOutput" onchange="sliderOutput(maxSliders)">
-                                <input class="form-control slider-output" type="number" aria-label="Disabled input example" disabled id="maxCarbs" size="2" value="" name="maxCarbs">
+                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbsOutput"
+                                    onchange="sliderOutput(this,this.value)">
+                                <input class="form-control slider-output" type="number" id="maxCarbs" size="2"
+                                    value="100" name="maxCarbs">
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-4 offset-md-9 mt-5 submit-wrapper">
+                    <div class="d-none d-md-block col-md-4 offset-md-5 mt-3 mb-3 submit-wrapper-md">
+                        <button type="submit" class="btn btn-primary" id="buttonRes">Spin</button>
+                    </div>
+                    <div class="d-md-none col-md-4 mt-3 mb-3 submit-wrapper-sm">
                         <button type="submit" class="btn btn-primary" id="buttonRes">Spin</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-        <!-- Modal -->
-    <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+    <!-- Modal -->
+    <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Oops! We found an issue:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    No results found! Try another combination!
+                    No results found! Check your spelling or try another combination!
                 </div>
             </div>
         </div>
     </div>
+    <!--Modal-->
     <footer>
         <div class="container-fluid d-none d-md-block container-footer-md">
             <div class="row">
@@ -108,13 +130,13 @@
                                     <span class="sr-only">Facebook</span>
                                 </a>
                             </li>
-                                <li class="list-inline-item">
+                            <li class="list-inline-item">
                                 <a target="_blank" rel="noreferrer" href="http://www.instagram.com">
                                     <i class="fab fa-instagram" aria-hidden="true"></i>
                                     <span class="sr-only">Instagram</span>
                                 </a>
                             </li>
-                                <li class="list-inline-item">
+                            <li class="list-inline-item">
                                 <a target="_blank" rel="noreferrer" href="http://www.twitter.com">
                                     <i class="fab fa-twitter-square" aria-hidden="true"></i>
                                     <span class="sr-only">Twitter</span>
@@ -130,20 +152,20 @@
                 <div class="card-body container-footer-sm">
                     <h5 class="card-title name-header-footer-sm">vinnie-ordobas©</h5>
                     <p class="card-text">Would you like to report a bug? Reach me at viniordobas@icloud.com</p>
-                     <ul class="list-inline social-links-sm">
+                    <ul class="list-inline social-links-sm">
                         <li class="list-inline-item">
                             <a target="_blank" rel="noreferrer" href="http://www.facebook.com">
                                 <i class="fab fa-facebook" aria-hidden="true"></i>
                                 <span class="sr-only">Facebook</span>
                             </a>
                         </li>
-                            <li class="list-inline-item">
+                        <li class="list-inline-item">
                             <a target="_blank" rel="noreferrer" href="http://www.instagram.com">
                                 <i class="fab fa-instagram" aria-hidden="true"></i>
                                 <span class="sr-only">Instagram</span>
                             </a>
                         </li>
-                            <li class="list-inline-item">
+                        <li class="list-inline-item">
                             <a target="_blank" rel="noreferrer" href="http://www.twitter.com">
                                 <i class="fab fa-twitter-square" aria-hidden="true"></i>
                                 <span class="sr-only">Twitter</span>
@@ -155,10 +177,15 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+        integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg=="
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"
+        integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA=="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -146,23 +146,28 @@ function renderRecipe(data) {
 
 
 // Finds the method for the recipe
-    let instructionSteps = data.analyzedInstructions[0].steps;
-    let instructionOutput = 
+    
+        let instructionOutput = 
    
     `   
     <div class="col-sm-12 col-md-8 order-md-1 method-list"> 
         <h4 class="section-title"> Method: </h4>
         <ol class="step-list">`
 
-    instructionSteps.forEach(function(step) {
-       
-        instructionOutput +=
+    if (data.analyzedInstructions.length === 0) {
 
-        `<li class="list-item">
-             ${step.step}
-        </li>`
-    })
+    } else {
+        let instructionSteps = data.analyzedInstructions[0].steps;
+    
+        instructionSteps.forEach(function(step) {
 
+            instructionOutput +=
+
+            `<li class="list-item">
+                ${step.step}
+            </li>`
+        })
+    }
     instructionOutput = instructionOutput + 
 
     `

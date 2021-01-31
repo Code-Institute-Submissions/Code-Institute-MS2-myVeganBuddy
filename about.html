@@ -14,11 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Yusei+Magic&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <script type="text/javascript" src="assets/js/recipe.js"></script>
 </head>
 
 <body>
-    <!-- Navbar copied from: [https://bbbootstrap.com/snippets/responsive-navigation-bar-search-box-72587512] -->
     <nav class="navbar navbar-expand-lg sticky-top navbar-light">
         <a class="navbar-brand" href="#" data-abc="true">
             <img id="logo" src="assets/img/circle-logo.png" alt="" width="50" height="40"
@@ -32,67 +30,57 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"> <a class="nav-link" href="index.html" data-abc="true">Home</a>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="refined_search.html" data-abc="true">Refined
-                        Search</a>
+                <li class="nav-item"> <a class="nav-link" href="refined_search.html" data-abc="true">Refined Search</a>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="about.html" data-abc="true">About</a>
-                </li>
+                <li class="nav-item active"> <a class="nav-link" href="about.html" data-abc="true">About <span
+                            class="sr-only">(current)</span></a> </li>
             </ul>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="result.html">Results</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Recipe</li>
-                    </ol>
-                </nav>
+    <div class="container-fluid d-none d-md-block">
+        <div class="row about-row">
+            <div class="col-6 about-one">
+                <div class="img-wrap">
+                    <img src="assets/img/logo_all.png" class="card-img-top" alt="myVegan Buddy">
+                </div>
+            </div>
+            <div class="col-6 about-two mt-5">
+                <div class="card-header d-flex justify-content-center">
+                    <h4 class="card-title">Who are we?</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">The internet is full of reasons WHY you should be vegan - but not many out
+                        there focus on HOW. And that's what we do. We're down to the practical. We're here to guide
+                        you through the deep-Amazonian-jungles of broccoli. We're here to show you the way across
+                        the ponds of non-dairy millk and to take you to the pot full of chickpeas at the end of the
+                        rainbow.
+                    </p>
+                </div>
             </div>
         </div>
-        <div id="recipeRender"></div>
     </div>
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
-            <div class="d-md-none">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <div class="title-wrapper text-center">
-                            <h4 class="section-title"> Recommendation of the day: </h4>
-                        </div>
-                        <div class="card-header-sm" id="random-header">
-                            <p> Would you like a recommendation? </p>
-                            <button type="submit" class="btn btn-primary" id="buttonFetch"
-                                onclick="fetchRandom()">Fetch</button>
-                        </div>
+    <div class="container-fluid d-md-none">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card mb-3 card-about">
+                    <div class="img-wrap">
+                        <img src="assets/img/logo_all.png" class="card-img-top" alt="myVegan Buddy">
                     </div>
-                    <div class="card-body" id="randomRecipe-sm">
-
+                    <div class="card-header d-flex justify-content-center">
+                        <h4 class="card-title">Who are we?</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">The internet is full of reasons WHY you should be vegan - but not many out
+                            there focus on HOW. And that's what we do. We're down to the practical. We're here to guide
+                            you through the deep-Amazonian-jungles of broccoli. We're here to show you the way across
+                            the ponds of non-dairy millk and to take you to the pot full of chickpeas at the end of the
+                            rainbow.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        const recipeRender = document.getElementById('recipeRender');
-        // Creates basic HTML element structure
-        recipeRender.innerHTML = localStorage.getItem("requestedRecipe");
-
-        const randomRecipeWrapper = document.getElementById('randomRecipeWrapper')
-        document.addEventListener("load", getRandomRecipe())
-        randomRecipeWrapper.innerHTML = localStorage.getItem('randomRecipe')
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
-        integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"
-        integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA=="
-        crossorigin="anonymous"></script>
     <footer>
         <div class="container-fluid d-none d-md-block container-footer-md">
             <div class="row">
@@ -154,6 +142,15 @@
             </div>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+        integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"
+        integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA=="
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -36,89 +36,55 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row refined-search">
-            <div class="col-12">
-                <h4 class="text-center form-title">Find recipes:</h4><br>
-                <form class="row" id='submitForm'>
-                    <div class="col-md-9 offset-md-3">
-                        <label for="recipe-form" class="form-label">with these words in the title:</label>
-                        <input type="text" class="form-control" id="recipe-form" name="query" required>
-                    </div>
-                    <div>
-                        <input type="hidden" class="form-control" id="diet-form" name="diet" value="vegan">
-                    </div>
-                    <div class="col-md-9 offset-md-3">
-                        <label for="ingredient-form" class="form-label">including these ingredients:</label>
-                        <input type="text" class="form-control" id="ingredient-form" name="includeIngredients">
-                    </div>
-                    <div class="col-md-4 offset-md-3">
-                        <label for="allergens" class="form-label">with allergens:</label><br>
-                        <input type="text" class="form-control" id="allergens" name="intolerances">
-                    </div>
-                    <div class="col-md-3 offset-md-2">
-                        <label for="maxCalories" class="form-label">with total amount of calories:</label>
-                        <input type="text" class="form-control" id="maxCalories" name="maxCalories" value="2000">
-                    </div>
-                    <div class="col-md-6 offset-md-3">
-                        <label for="macros" class="form-label">with these macros:</label>
-                        <ul class="list-group" id="macros">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <label for="maxProtein" class="form-label">Protein</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxProteinOutput"
-                                    onchange="sliderOutput(this,this.value)">
-                                <input class="form-control slider-output" type="number" id="maxProtein" size="2"
-                                    value="100" name="maxProtein">
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <label for="maxFat" class="form-label" id="maxFatLabel">Fat</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxFatOutput"
-                                    onchange="sliderOutput(this,this.value)">
-                                <input class="form-control slider-output" type="number" id="maxFat" size="2" value="100"
-                                    name="maxFat">
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <label for="maxCarbs" class="form-label">Carbs</label>
-                                <input type="range" class="slider" value="100" min="0" max="100" id="maxCarbsOutput"
-                                    onchange="sliderOutput(this,this.value)">
-                                <input class="form-control slider-output" type="number" id="maxCarbs" size="2"
-                                    value="100" name="maxCarbs">
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="d-none d-md-block col-md-4 offset-md-5 mt-3 mb-3 submit-wrapper-md">
-                        <button type="submit" class="btn btn-primary" id="buttonRes">Spin</button>
-                    </div>
-                    <div class="d-md-none col-md-4 mt-3 mb-3 submit-wrapper-sm">
-                        <button type="submit" class="btn btn-primary" id="buttonRes">Spin</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Oops! We found an issue:</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="container-fluid d-none d-md-block">
+        <div class="row about-row">
+            <div class="col-6 about-one">
+                <div class="img-wrap">
+                    <img src="assets/img/logo_all.png" class="card-img-top" alt="myVegan Buddy">
                 </div>
-                <div class="modal-body">
-                    No results found! Check your spelling or try another combination!
+            </div>
+            <div class="col-6 about-two mt-5">
+                <div class="card-header-about d-flex justify-content-center">
+                    <h4 class="card-title">Who are we?</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">The internet is full of reasons WHY you should be vegan - but not many out
+                        there focus on HOW. And that's what we do. We're down to the practical. We're here to guide
+                        you through the deep-Amazonian-jungles of broccoli. We're here to show you the way across
+                        the ponds of non-dairy millk and to take you to the pot full of chickpeas at the end of the
+                        rainbow.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <!--Modal-->
+    <div class="container-fluid d-md-none">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card mb-3 card-about">
+                    <div class="img-wrap">
+                        <img src="assets/img/logo_all.png" class="card-img-top" alt="myVegan Buddy">
+                    </div>
+                    <div class="card-header d-flex justify-content-center">
+                        <h4 class="card-title">Who are we?</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">The internet is full of reasons WHY you should be vegan - but not many out
+                            there focus on HOW. And that's what we do. We're down to the practical. We're here to guide
+                            you through the deep-Amazonian-jungles of broccoli. We're here to show you the way across
+                            the ponds of non-dairy millk and to take you to the pot full of chickpeas at the end of the
+                            rainbow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
         <div class="container-fluid d-none d-md-block container-footer-md">
             <div class="row">
                 <div class="col-sm-6">
-                    <h5 class="name-header-footer-md">vinnie-ordobas©</h5>
+                    <h5 class="name-header-footer-md">myVegan Buddy©</h5>
                 </div>
                 <div class="col-sm-6 about-links">
                     <div class="d-flex justify-content-end">
@@ -184,7 +150,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"
         integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA=="
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 
 </html>

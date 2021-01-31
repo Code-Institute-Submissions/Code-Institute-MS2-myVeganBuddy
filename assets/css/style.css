@@ -144,6 +144,9 @@ ol {
   margin-right: 30px;
 }
 
+/* INDEX PAGE */
+
+
 /* Search bar */
 
 #searchBar {
@@ -170,6 +173,10 @@ ol {
 
 .button-spin {
   margin-left: 10px;
+}
+
+.submit-wrapper {
+  padding-left: 20%
 }
 
 /* Icons */

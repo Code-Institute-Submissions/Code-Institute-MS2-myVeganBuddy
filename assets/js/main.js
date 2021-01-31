@@ -16,7 +16,7 @@ if (wLocation.toString().includes('index.html')) {
     
 } else {
     const buttonRes = document.getElementById('buttonRes');
-    const buttonResSm = document.getElementById('buttonResSM');
+    const buttonResSm = document.getElementById('buttonResSm');
     // Declaring event listeners
     buttonRes.addEventListener('click',handleSubmit);
     buttonResSm.addEventListener('click',handleSubmit);

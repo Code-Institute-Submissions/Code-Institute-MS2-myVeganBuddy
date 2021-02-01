@@ -29,12 +29,12 @@ function renderRecipe(data) {
         <div class="row recipe-render">    
             <div class="col-sm-12 col-md-6 recipe-card">
                 <div class="card card-recipe">
-                    <div class="image-wrapper">
+                    <div class="img-wrapper-recipe">
                         <img src="${data.image}" class="card-img-top img-fluid img-responsive rounded" alt="${data.title}">
                     </div>
                     <div class="card-header">
                         <div class="title-wrapper text-center">
-                                <h4 class="card-title section-title">${data.title}</h4>
+                            <h4 class="card-title section-title">${data.title}</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -97,7 +97,7 @@ function renderRecipe(data) {
                                 <div class="md-v-line"></div> - Protein: ${round(nutrients[8].amount/data.servings,1)} grams per portion
                             </li>
                             <li class="list-group-item">
-                                <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button><br><i class="fas fa-arrow-circle-down fa-2x"></i>
+                                <div class="md-v-line"></div><button type="button" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#table-collapse">Full List of Nutrients</button>
                             </li>
                         </ul>
                     </div>  
@@ -267,7 +267,7 @@ function renderRandom(data) {
     let randomRecipe = 
 
         `   
-        <div class="img-wrapper random-recipe">
+        <div class="img-wrapper-random">
             <img src="${data.image}" class="card-img-top img-thumbnail" alt="${data.title}">
         </div>
         <h5 class="card-title">${data.title}</h5>

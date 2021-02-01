@@ -6,12 +6,17 @@ let wLocation = window.location;
 
 if (wLocation.toString().includes('index.html')) {
     const buttonApi = document.getElementById('buttonApi');
+    const buttonApiSm = document.getElementById('buttonApiSm');
     const searchBar = document.getElementById('searchBar');
-    const searchNav = document.getElementById('searchNav');
+    const searchBarSm = document.getElementById('searchBarSm');
+    
     
     // Declaring event listeners
     buttonApi.addEventListener('click', function() {
-        requestAPI(searchBar)
+        requestAPI(searchBar);
+    });
+    buttonApiSm.addEventListener('click', function() {
+        requestAPI(searchBarSm);
     });
     
 } else {
@@ -36,7 +41,7 @@ maxSliders = [maxProtein, maxFat, maxCarbs];
 function requestAPI(search) {
     // Gets the search query and passes as a parameter to the Request
     var searchString = search.value;
-    
+
     fetch(`${url}?limitLicense=false&offset=0&number=12&diet=vegan&includeIngredients=${searchString}&ranking=2&maxCalories=1500&maxFat=100&maxProtein=100&maxCarbs=100&fillIngredients=false&instructionsRequired=false&addRecipeInformation=true`, {
         "method": "GET",
         "headers": {
@@ -94,7 +99,7 @@ function renderResponse(data) {
                 // Creates HTML element
                 output +=
                     `
-                    <div class="col-sm-12 col-md-3">
+                    <div class="col-sm-12 col-md-4">
                         <div class="card card-render">
                             <img src="${recipe.image}" class="card-img-top img-thumbnail" alt="${recipe.title}">
                             <h4 class="card-header card-header-recipe text-center section-title">${recipe.title}</h4>

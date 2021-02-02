@@ -153,14 +153,20 @@ ol {
 /* Background Image */
 
 .background-wrapper {
-  height: 100vh;
+  height: 75vh;
   background: url(../img/background-image-2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 100%;
+  margin-bottom: -60px;
 }
 
+.bg-wrapper {
+   min-height: 100%;
+   margin-bottom: -60px;
+}
 
 /* Buttons */
 
@@ -174,6 +180,7 @@ ol {
 
 .submit-wrapper-md {
   text-align: center;
+  margin-top: 100px;
 }
 
 .submit-wrapper-sm {
@@ -236,11 +243,8 @@ ol {
 
 /* Footer */
 
-.footer-index {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+footer {
+height: 60px;
 }
 
 .container-footer-md {
@@ -315,6 +319,7 @@ ol {
     border: 1px solid rgba(0, 0, 0, .125);
   }
 
+
   .footer-about {
     position: fixed;
     bottom: 0;
@@ -330,15 +335,13 @@ ol {
   }
   
   #logo-index {
-    width: 50%;
-    height: 50%;
-  }
-}
-
-@media screen and (min-width: 992px) {
- 
-  #logo-index {
     width: 40%;
     height: 40%;
   }
+
+  .md-wrapper {
+    position: relative;
+    top: 20%;
+  }
 }
+

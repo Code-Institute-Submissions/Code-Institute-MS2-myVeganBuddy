@@ -22,7 +22,7 @@ function requestRecipe(recipeId) {
 function renderRecipe(data) {
     // access the nutrients property of the object
     let nutrients = data.nutrition.nutrients;
-    rating = Math.round(data.spoonacularScore/10) * 10;
+    let rating = Math.round(data.spoonacularScore/10) * 10;
     // Creates variable with HTML elements to render on the page
     let calPerPortion = nutrients[0].amount/data.servings;
     let recipeOutput = `
@@ -279,7 +279,7 @@ function renderRandom(data) {
             </ul>
         </div>
         <div class="text-center">
-            <button href="recipe.html" target="_blank" class="btn btn-secondary" onclick="requestRecipe(${data.id})">Try me!</button>
+            <button href="recipe.html" target="_blank" class="btn btn-success" onclick="requestRecipe(${data.id})">Try me!</button>
         </div>`
 
     localStorage.setItem('randomRecipe', randomRecipe);

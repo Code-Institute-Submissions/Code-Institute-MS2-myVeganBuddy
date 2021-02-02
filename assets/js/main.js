@@ -122,7 +122,7 @@ function renderResponse(data) {
                                     </ul>
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-secondary" onclick="requestRecipe(${recipe.id})">Cook me!</button>
+                                    <button class="btn btn-success" onclick="requestRecipe(${recipe.id})">Cook me!</button>
                                 </div>
                             </div>
                         </div>
@@ -159,6 +159,21 @@ function handleSubmit(event) {
 };
 
 function errorHandling(err) {
-    alert(err);
-    console.log(err);
+    let errModal = document.createElement('div');
+    errModal.classList.add('modal fade')
+    errModal.id = ('errModal');
+    errModal.innerHTML =
+        
+        ` <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Oops! We found an issue:</h5>
+                    </div>
+                    <div class="modal-body">
+                        ${err}
+                    </div>
+                </div>
+            </div>`
+
+    errModal.toggle()
 }

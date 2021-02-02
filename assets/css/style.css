@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 html,
 body {
   padding: 0;
@@ -19,7 +26,6 @@ ol {
 }
 
 
-/* ------------------------------------------------------------------- Recipe ----------------------------------------------------------------------------*/
 
 
 /*Random Recipe widget */
@@ -28,7 +34,11 @@ ol {
   margin-left: 22%;
   width: 50%;
   height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   border: 0;
 }
@@ -77,8 +87,14 @@ ol {
 /* Section titles */
 
 .section-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-family: 'Yusei Magic', sans-serif;
 }
@@ -102,8 +118,13 @@ ol {
 }
 
 .icon-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -138,34 +159,35 @@ ol {
   margin-right: 30px;
 }
 
-/* INDEX PAGE */
 
 /* Logo */
 
 .image-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 #logo-index-sm {
   margin-top: 120px;
 }
+
 /* Background Image */
 
 .background-wrapper {
   height: 75vh;
   background: url(../img/background-image-2.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   min-height: 100%;
   margin-bottom: -60px;
 }
 
 .bg-wrapper {
-   min-height: 100%;
-   margin-bottom: -60px;
+  min-height: 100%;
+  margin-bottom: -60px;
 }
 
 /* Buttons */
@@ -190,8 +212,14 @@ ol {
 /* Icons */
 
 .icons-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -233,7 +261,11 @@ ol {
 
 .nav-wrapper {
   padding-left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -244,7 +276,7 @@ ol {
 /* Footer */
 
 footer {
-height: 60px;
+  height: 60px;
 }
 
 .container-footer-md {
@@ -326,6 +358,7 @@ height: 60px;
     left: 0;
     right: 0;
   }
+
   .img-wrapper-recipe {
     max-height: 75%;
   }
@@ -333,7 +366,7 @@ height: 60px;
   .img-wrapper-random {
     max-height: 75%;
   }
-  
+
   #logo-index {
     width: 35%;
     height: 35%;
@@ -345,4 +378,3 @@ height: 60px;
     overflow-x: hidden;
   }
 }
-

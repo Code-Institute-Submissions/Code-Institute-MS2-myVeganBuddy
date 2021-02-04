@@ -85,8 +85,6 @@ function renderResponse(data) {
     if (data.length === 0) {
         var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
         resultModal.toggle() 
-
-        // How to early break of a function - code found in: [https://stackoverflow.com/questions/3330193/early-exit-from-function];
         return;
     } else {
         let output = `
@@ -138,13 +136,15 @@ function renderResponse(data) {
 
 // Handler functions
 
-// How to transform formData into an URL search parameters and feed to the request - code found on [https://ultimatecourses.com/blog/transform-formdata-into-query-string]
+// How to transform formData into an URL search parameters and feed to the request - tutorial found in: [https://ultimatecourses.com/blog/transform-formdata-into-query-string]
 
 function handleSubmit(event) {
     event.preventDefault();
     let form = document.forms[0]
     const formData = new FormData(form);
     const asString = new URLSearchParams(formData).toString();
+    
+    // "JavaScript Promise Tutorial: Resolve, Reject, and Chaining in JS and ES6" tutorial found in: https://www.freecodecamp.org/news/javascript-es6-promises-for-beginners-resolve-reject-and-chaining-explained/
     let promise = new Promise(function (resolve, reject) {
         if (asString) {
             resolve()
@@ -157,7 +157,7 @@ function handleSubmit(event) {
     promise.catch((err) => errorHandling(err))
     
 };
-
+// Handling error
 function errorHandling(err) {
     let errModal = document.createElement('div');
     errModal.classList.add('modal fade')
@@ -176,4 +176,10 @@ function errorHandling(err) {
             </div>`
 
     errModal.toggle()
+}
+
+// Linking functions
+
+function linkTo() {
+    window.location = 'refined_search.html'
 }

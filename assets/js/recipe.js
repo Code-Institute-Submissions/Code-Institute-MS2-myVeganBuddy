@@ -65,7 +65,7 @@ function renderRecipe(data) {
                 </div>
             </div>`
     
-    // How to create list groups with icons - Code found on https://mdbootstrap.com/snippets/jquery/mdbootstrap/949128#html-tab-view    
+    // How to create list groups with icons - Tutorial found in https://mdbootstrap.com/snippets/jquery/mdbootstrap/949128#html-tab-view    
         let macros = 
 
         `   <div class="col-sm-12 col-md-6">
@@ -187,7 +187,8 @@ function renderRecipe(data) {
         
         if (ingredient.measures.us.amount.toFixed(1) < 1) {
 
-            ingredient.amount = decimalToFraction(ingredient.measures.us.amount).display;
+
+            ingredient.amount = decimalToFraction(round(ingredient.measures.us.amount,1)).display;
             
         } else {
             ingredient.amount = Math.round(ingredient.amount);
@@ -203,13 +204,13 @@ function renderRecipe(data) {
     `       </ul>
         </div>`
     // Directs the variable to the html element
-    var requestedRecipe = recipeOutput + macros + ingredientOutput + instructionOutput; // Swapping column orders for different screen sizes [How to Reorder Columns with Bootstrap 4 Order Classes] - Code found on: https://bootstrapcreative.com/bootstrap-push-pull-column-ordering-tutorial/
+    var requestedRecipe = recipeOutput + macros + ingredientOutput + instructionOutput; // Swapping column orders for different screen sizes [How to Reorder Columns with Bootstrap 4 Order Classes] - Tutorial found on: https://bootstrapcreative.com/bootstrap-push-pull-column-ordering-tutorial/
     localStorage.setItem('requestedRecipe', requestedRecipe);
     window.location.href = "recipe.html";
 }
 
 
-// How to round integers with decimal precision - [Rounding Decimals in JavaScript] code found on: https://www.jacklmoore.com/notes/rounding-in-javascript/
+// How to round integers with decimal precision - [Rounding Decimals in JavaScript] code found in: https://www.jacklmoore.com/notes/rounding-in-javascript/
 function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }

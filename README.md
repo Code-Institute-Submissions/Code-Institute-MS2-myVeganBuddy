@@ -1,11 +1,15 @@
-# My Vegan Buddy
+# myVegan Buddy
 
 A four-page web app featuring a search engine to aid vegans on finding recipes and nutritional information.
 
 
+
+### Motivation
+
+> When I first turned vegan, I struggled for a while and lost a lot of time trying to plan my meals and recipes, and I wish I had a platform to speed up the process. With that idea in mind, I've designed the app I wish I had when I first started eating plant-based food.
 ### Description
 
-> My Vegan Buddy is a virtual pal who helps both vegans and meat eaters to find vegan recipes and their nutritional information. It conveys an easy way to become and to remain suffering-free. 
+> My Vegan Buddy is a virtual pal who helps both vegans and meat eaters to find vegan recipes and their nutritional information. It conveys an easy way to become and remain suffering-free. 
 
 ---
 
@@ -16,6 +20,7 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 > - _"My friends and I are all big gym goers, and I've been trying to convince them to turn vegan for ages now, but it is so difficult to find resources out there that have (real) nutritional information online."_
 > - _"Working and studying take a lot of time, so cooking is not always possible - being vegan, that means my options are often reduced. I'd like to be able to find new ideas that fit in my schedule."_
 
+> - _"I have a severe nut allergy, so I usually spend a lot of time researching about recipes, often looking for detailed information. It'd be handy if I could find recipes matching different options, such as allergens and ingredients."_
 
 ---
 
@@ -52,8 +57,7 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 > - Search engine to find vegan recipes, with options to search for them by name or ingredient.
 > - Nutritional information of the recipe.
 > - Rating system, time for cooking and portion size for each recipe.
-> - Sign-up form for newsletter service.
-> - Features that match my current knowledge.
+> - Refined search to further filter results from the database.
 
 #### 3. Structure
 
@@ -64,9 +68,9 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 
 > - [Wire frames](assets/docs/wireframes.pdf): Four-page website.
 >
-> - Home, About, Results and Recipe pages.
+> - Home, Refined Search, About, Results and Recipe pages.
 >
-> - Navigation bar - Links to each page.
+> - Sticky navigation bar - Links to each page.
 >
 > - Footer with social media link and copyrights.
 
@@ -74,41 +78,44 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 
 #### 5. Surface
 
-Through some research, I've found that Gym websites praise contrast between colour palettes, so I've picked darker tones in contrast with brighter colors, albeit with darker tonalities.
+> I used old cookbooks as an inspiration, and all of them had a clean laytout, mild tonalities to increase the constrast with the images of the recipes.
 
 > ##### Colours
 >
-> Darker graphite tonalities, black-and-white hero image in contrast with brighter tones - to make components "jump" and to mimic movement. 
-> - I've picked a bright, deep ocean blue(#003049) for one of the background-wrappers and a leafy green(#003049) for the other. 
-> - For body text, I've used a combination of regular black, white smoke for the bright text. For the button togglers and the text the jumbo tron, I've chosen a darker "blood-red" (#AE3A21)
-> 
+> - I've opted for clean mild palettes such as light brown(#ddbea9) and fucshia (#fec5bb) for the nav bar and the footer.
+> - For the elements of the layout, I picked a whitesmoke and clean palette to follow convention.
+> - For body text, I've used a combination of shades of black. 
+> - For the button togglers and I've a bright orange mixed with a vivid green.
+
 > ##### Typography
->
-> - "TEKO" font (with fall-back font of Sans-Serif) for main headings. This font was picked for its hard angles, to create a stronger contrast with "background-colours".
-> - "Roboto" font (with fall-back font of Sans-Serif) for body content.
->
+> 
+> - "Nunito" font (with fall-back font of Sans-Serif) for body content.
+> - "Yusei Magic" for recipe headers and titles(fall-back font of Sans-Serif).
 > ##### Images
 >
-> The images are a representation of what a GYM would have for infrastructure, as a way for customers to see it before visiting the club.
-
+> - Images are particular to each recipe and are hosted by the API itself [https://rapidapi.com/user/spoonacular].
+> 
 ---
 
 ### Features
 
 ##### Existing Features
 
-> - Designed with HTML5, CSS3, Bootstrap and Flex box.
-> - Single page site with five sections acting as individual pages.
-> - Navigation bar allows the user to easily navigate, regardless of which page visited.
+> - Designed with HTML5, CSS3, JavaScript and Bootstrap.
+> - Sticky navigation bar allows the user to easily navigate between pages.
 > - Footer allows the user quick accessibility to social media links.
-> - Carousel with subtitles to introduce the club's infrastructure.
-> - Adjustable pictures with rounded frames for introduce the crew.
-> - Sign up form and find us with an embedded map.
+> - About page describing the project.
+> - Connected to Spoonacular API [https://rapidapi.com/user/spoonacular].
+> - Search engine to find recipes, according to available ingredients.
+> - Breadcrumbs on Result and Recipe pages to easily navigate through recipes.
+> - Recommendation of the day widget, to select random recipes and recommend to the user.
+> - Refined search page to filter results.
+> - Collapsible nutritional information table.
 
 ##### Features to implement
 
-> - Sign-in page with functionalities to book classes in advance.
-> - Settings page to set user's preferences. 
+> - Sign-in page to save favourite recipes, create meal plan and personalised macros.
+> - Add endpoint to recommend a wine pairing with the recipe. 
 
 ---
 
@@ -116,79 +123,78 @@ Through some research, I've found that Gym websites praise contrast between colo
 
 ##### 1. Languages
 
-> [HTML5](https://en.wikipedia.org/wiki/HTML5)
+> - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 >
-> [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+> - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+>
+> - [JavaScript](https://www.javascript.com/)
 
 ##### 2. Integrations
 
-> [Bootstrap](https://getbootstrap.com/) - [Bootstrap CDN](https://www.bootstrapcdn.com/)
+> - [Bootstrap](https://getbootstrap.com/) - Classes for the overall layout of the website
 >
-> [FontAwesome](https://fontawesome.com/)
+> - [Bootstrap CDN](https://www.bootstrapcdn.com/)
 >
-> [Google Fonts](https://fonts.google.com/)
-
+> - [FontAwesome](https://fontawesome.com/) - Card Icons, footer social media links
+>
+> - [Google Fonts](https://fonts.google.com/) - Typography
+>
+> - [jQuery](https://jquery.com/) - JavaScript Library
+>
+> - [RapidAPI](https://rapidapi.com/marketplace) - Spoonacular API 
 ##### 3. Workspace, version control and Repository storage
 
-> [GitPod](https://github.com/mkuti/corklagos-venture/blob/master/gitpod.io) - IDE
+> - [VSCode](https://code.visualstudio.com/) - IDE
 >
-> [Git](https://git-scm.com/) - Version Control
+> - [Git](https://git-scm.com/) - Version Control
 >
-> [GitHub](https://github.com/) - Repository Storage
+> - [GitHub](https://github.com/) - Repository Storage
 
 ##### 4. Other
 
-> [Autoprefixer](https://autoprefixer.github.io/) Parses CSS and adds vendor prefixes.
-> [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) Mobile-friendly check on site.
-> [Website Page Test](https://www.webpagetest.org/) Runs a website speed test from multiple locations around the globe using real browsers (IE and Chrome) and at real consumer connection speeds. 
-> [Online-Spellcheck](https://www.online-spellcheck.com/) Online spelling and grammar checks.
+> - [Autoprefixer](https://autoprefixer.github.io/) Parses CSS and adds vendor prefixes.
+>
+> - [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) Mobile-friendly check on site.
+>
+> - [Website Page Test](https://www.webpagetest.org/) Runs a website speed test from multiple locations around the globe using real browsers (IE and Chrome) and at real consumer connection speeds. 
+>
+> - [Online-Spellcheck](https://www.online-spellcheck.com/) Online spelling and grammar checks.
 
 
 ### Resources
 
 > - [Code Institute Course Content](https://courses.codeinstitute.net/) - Primary resource for this project.
-> - [Balsamic](https://balsamiq.com/wireframes/) - Wire framing design tool.
+> - [Balsamiq](https://balsamiq.com/wireframes/) - Wire framing design tool.
 > - [Bootsrap Grid Explanation by Anna Greaves](https://ajgreaves.github.io/bootstrap-grid-demo/) - Resource for Bootstrap Grids.
 > - [Stack Overflow](https://stackoverflow.com/) - Common questions.
 > - [Youtube](https://www.youtube.com/) - Tutorials.
 > - [CSS-Tricks](https://css-tricks.com/) - Quick CSS resources.
 > - [Common Mark](https://commonmark.org/help/) - For Markdown language reference.
-> - [Flexbox Zombies](https://geddski.teachable.com/p/flexbox-zombies) - To learn Flexbox technology.
+> - [Grid Citters](https://gridcritters.com/) - To learn CSS Grid technology.
 > - [Coolors](https://coolors.co/) - Colours palette research.
 > - [Adobe Resize Images](https://www.adobe.com/ie/photoshop/online/resize-image.html) - Resource for resizing images
 > - [Tiny PNG](https://www.tinypng.com) - Resource to compress gallery images.
 > - [Markdown Tutorial](https://www.markdowntutorial.com/) - Used to learn Markdown.
-> - [Behance - Arnie | Gym website by Irina Syvachenko](https://www.behance.net/gallery/101605857/Arnie-Gym-website) - Inspiration for the website
-> - Code Institute **SLACK Channel** - Assistance.
+> - [Behance Hend Elgohary "Daily Recipe" Concept](https://www.behance.net/gallery/108701551/Daily-Recipe) - Inspiration for the layout.
+> Code Institute **SLACK Channel** - Assistance.
 ---
 
 ### Testing
 
-> - Tested Responsiveness of the page with [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly).
-> - Used [HTML Validation](https://validator.w3.org/) No errors or warnings to show.
-> - Used [CSS Validation](https://jigsaw.w3.org/css-validator/) No errors or warnings to show.
-> - Tested site URL on [Website Page Test](https://www.webpagetest.org/) - rendered a good enough result, as it took 4.33 seconds to load the page. 
-> - Ran CSS through [Autoprefixer](https://autoprefixer.github.io/) to format style.css.
-> - Used [Grammarly](https://www.grammarly.com) to check grammar and spelling through the document/page.
-> - Ran README text through [Online-Spellcheck](https://www.online-spellcheck.com/) to make sure the document was presentable.
-
+> External testing documentation can be found following this [link](assets/docs/testing.md).
 
 ---
 
 ### Bugs and turnarounds
 
-> - Issues to create the API request, by putting the URL together. Ended it up finding a solution by using template literals - String Interpolation.
-> - I had issues in transforming and accessing the object returned by the API's request. Transformed in a JSON object and accessed the ".results" property to iterate through the object.
-> - Bug encountered when rendering "bootstrap-card-group" on large screens. To solve this issue, I have used bootstrap grid layout (*.col-12).
-> - Bug found on filling FontAwesome starts according to rating from API. Found solution on: [A Simple JavaScript Technique for Filling Star Ratings](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450).
-> - Found a bug trying to render the recipe to another HTML page. The turnaround was offered by Victor (my mentor), by saving the target HTML element to 'localStorage', changing to another page using 'window.location.href' property and loading the saved content from 'localStorage'.  
-> - Bug requesting recipe from reined_search = throwing errors such as "Illegal Invocation" or "Failed to fetch" - string interpolation did not work. 
-> - Used this tutorial:[https://ultimatecourses.com/blog/transform-formdata-into-query-string]. 
-> - 
-> - 
-> -
-> - 
-> - 
+> - API request returned with a 404 code status, when requesting the recipe from the home page. API's endpoint was not referenced properly in the url. To solve the problem, I copied the URL from code snippet found in the  API's website [Spoonacular](https://rapidapi.com/user/spoonacular) and used string interpolation to solve the bug.
+> - Ingredient list printed units without decimal precision and incorrect format when looping through data["ingredients"]. I found the solution combining two functions found in these websites: [Rounding Decimals in JavaScript](https://www.jacklmoore.com/notes/rounding-in-javascript/), [How to transform integers with decimal points into fractions](https://gist.github.com/redteam-snippets/3934258) 
+> - Star rating for each recipe were not accessing pseudo-classes in CSS (:after) to change width and fill color(yellow) according to property returned from the request. Found solution on: [A Simple JavaScript Technique for Filling Star Ratings](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450).
+> -  Script file wasn't able to find DOM Id's to be to render the recipe to another HTML page. The turnaround was offered by Victor (my mentor), by saving the target HTML element(the JSON object returned by the API and renderized as HTML) to 'localStorage', changing to another page using 'window.location.href' property and loading the saved content from 'localStorage'. 
+> - Requesting information from the API through the page "refined_searhc.html" would return errors: "Illegal Invocation" and "Failed to fetch" - the first one was the error handling function that would create a modal. Hard-coded the model in a hidden state to turn around and spit the error message. Second bug occurred when creating the string to pass as parameter for the API's endpoint. Turn around was to create a hidden form element in the form object which validates user inputs to send the request. To do so, I used this tutorial: [How to Transform FormData into a Query String](https://ultimatecourses.com/blog/transform-formdata-into-query-string). After creating the string object, I chained it with a promise - followed this tutorial: [JavaScript Promise Tutorial: Resolve, Reject, and Chaining in JS and ES6](https://www.freecodecamp.org/news/javascript-es6-promises-for-beginners-resolve-reject-and-chaining-explained/).
+> - Some particular recipes would come back with an "undefined" when rendering method for the recipe with the inside the function "renderRecipe", splitting the code and not loading the rest. The property [analyzedInstructions] of those recipes return and empty array. To handle the bug, I created a conditional statement to short-circuit the issue.
+> - Main recipe's image and recommended recipe image would render stretched on the main axis in medium devices. Implemented media queries to shrink the ratio of the image on smaller screens.
+
 ---
 
 ### Code validity
@@ -210,23 +216,44 @@ Through some research, I've found that Gym websites praise contrast between colo
 
 This project has been deployed on GitHub Pages with the following process:
 
-> - All code was written on Gitpod, an online IDE.
-> - The code was then pushed to GitHub where it is stored in my [Repository](https://github.com/vinnieOrdobas/Code-Institute-MS1).
-> - Under the [settings](https://github.com/vinnieOrdobas/Code-Institute-MS1) section of the GitHub repository, scrolled down to GitHub Pages section.
-> - Under 'Source' drop-down, the 'Master branch' was selected.
-> - Once selected, this publishes the project to GitHub Pages and displays the site url.
+> - All code was written on VS Code, an IDE.
+> - The code was then pushed to GitHub where it is stored in my [Repository](https://github.com/vinnieOrdobas/Code-Institute-MS2-myVeganBuddy).
+> - Under **Settings** I scrolled down to **GitHub** Pages section.
+> - Under **Source** drop-down, the **Master branch** was selected.
+> - Once selected, this publishes the project to **GitHub** Pages and displays the site url.
 > - There is no difference between the deployed version and the development version.
-> - The code can be run locally through clone or download.
-> - You can do this by opening the repository, clicking on the green 'Code' button and selecting either 'clone or download'.
-> - The Clone option provides a url, which you can use on your desktop IDE.
-> - The Download ZIP option provides a link to download a ZIP file which can be unzipped on your local machine.
 
+#### How to run this project locally
+
+To clone this project into your IDE you will need:
+
+> - A **GitHub** account. Create one [here](https://github.com/join).
+> - **Google Chrome** browser.
+
+Follow this steps:
+
+1. Install the [Gitpod Browser Extentions for Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki).
+2. After installation, restart the browser.
+3. Log into [Gitpod](https://www.gitpod.io/) with your gitpod account.
+4. Navigate to the [Project GitHub repository](https://github.com/vinnieOrdobas/Code-Institute-MS2-myVeganBuddy).
+5. Click the green button "Gitpod" in the top right corner of the repository.
+6. This will create a gitpod workspace with the code from github where you can work locally.
+
+To work on the project within a local IDE (such as VScode):
+
+1. Follow this link to the [Project GitHub repository](https://github.com/vinnieOrdobas/Code-Institute-MS2-myVeganBuddy).
+2. Under the repository name, click "Clone or download".
+3. In the Clone with HTTPs section, copy the clone URL for the repository.
+4. In your local IDE open the terminal.
+5. Change the current working directory to the location where you want the cloned directory to ve made.
+6. Type "git clone" on your terminal, then paste the URL of the project.
 ### Credits
 
 > ##### Media
 >
-> - The crew portraits were given to me by my friends, and they hold the copyrights to them
-> - Hero image and gallery photos were taken from [Pexels](https://www.pexels.com/).
+> - Recipe images were provided by the API.
+> - Background image was taken from [Pexels](https://www.pexels.com/).
+> - Logos were created by illustrious [https://www.fiverr.com/illustriouss]. 
 >
 > ##### Content
 >
@@ -236,10 +263,10 @@ This project has been deployed on GitHub Pages with the following process:
 >
 > ##### Code Snippets
 >
-> - [CSS-Tricks](https://css-tricks.com/perfect-full-page-background-image/) - Full background responsive image.
-> - [Code Institute](https://codeinstitute.net/) - Inspiration for general layout from 'Whiskey Drop' Mini-Project in CSS Module.
-> - [Israel Villacís' on Stack Overflow](https://stackoverflow.com/questions/29641526/how-can-images-be-resized-using-bootstrap#:~:text=Use%20class%3D%22img%2Dresponsive,Its%20a%20bootstrap%20class) for the code solution to reduce images for smaller screens.
-> - [WrapPixel](https://snippets.wrappixel.com/bootstrap-our-team-section/) - Code snippet for the "Meet the Crew" section.
+> - [Rounding Decimals in JavaScript](https://www.jacklmoore.com/notes/rounding-in-javascript/) - To round ingredient units.
+> - [How to transform integers with decimal points into fractions](https://gist.github.com/redteam-snippets/3934258) - To transform units to fractions.
+>
+>
 ---
 
 > ##### Acknowledgments
@@ -247,14 +274,13 @@ This project has been deployed on GitHub Pages with the following process:
 > I would like to thank:
 >
 > - **Victor Miclovich**, my Mentor, for his insights, composure and experience. His invaluable assistance helped make this project reality.
-> - **Jim Morel (JimLynx_lead)** for the resources, inspiration and overall awesomeness.
 > - **Anderson Gonçalves** for taking the time to meet me and talk about this project, for tips and incredible insights, but above all, for his friendship.
-> - **Ronaldo Carvalho**, **Nathalia Veronese**, **Mauricio Meirinhos** for being always there for me, for their feedback and to have provided their faces for the project.
-> - **Douglas Santos** for his friendship. You're sorely missed brother.
+> - **Sofia Pereira** for her help on the general layout of the website.
+> - **CI Mentors** for helping me identify and define problems.
 > - **CI staff** for their care and affableness, and for always make sure I was in the right path.
 > - **Slack Community** for their help with my code, for support and to make me feel part of the community.
 
-### Support
+##### Support
 
 > For bug resolution, please reach Vinnie Ordobas on viniordobas@icloud.com.
 

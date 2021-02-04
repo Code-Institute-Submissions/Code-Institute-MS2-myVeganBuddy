@@ -9,6 +9,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  margin-bottom: -50px;
   height: 100%;
   font-family: 'Nunito',
     sans-serif;
@@ -24,7 +25,6 @@ ul {
 ol {
   font-weight: 800;
 }
-
 
 
 
@@ -84,9 +84,7 @@ ol {
 
 .section-title {
   display: flex;
-  -ms-flex-pack: center;
   justify-content: center;
-  -ms-flex-align: center;
   align-items: center;
   font-family: 'Yusei Magic', sans-serif;
 }
@@ -146,6 +144,9 @@ ol {
   margin-right: 30px;
 }
 
+.refined-form {
+  padding-right: 0;
+}
 
 /* Logo */
 
@@ -252,6 +253,16 @@ footer {
   height: 60px;
 }
 
+.footer-refined {
+  position: relative;
+  margin-top: 50px;
+  padding-right: 15px;
+}
+
+.footer-refined .card {
+  margin-right: 20px;
+}
+
 .container-footer-md {
   background-color: #ddbea9;
 }
@@ -314,6 +325,12 @@ footer {
   border: 1px solid rgba(0, 0, 0, .125);
 }
 
+  footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 @media screen and (min-width: 768px) {
   .card-header-recipe {
     height: 160px;
@@ -332,12 +349,25 @@ footer {
     right: 0;
   }
 
+  footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
   .img-wrapper-recipe {
-    max-height: 75%;
+    height: 75%;
+    width: 75%;
+    position: relative;
+    left: 12.5%;
   }
 
   .img-wrapper-random {
-    max-height: 75%;
+    height: 65%;
+    width: 65%;
+    position: relative;
+    left: 15%;
   }
 
   #logo-index {
@@ -349,5 +379,9 @@ footer {
     position: relative;
     top: 20%;
     overflow-x: hidden;
+  }
+
+  .refined-form {
+    padding-right: 15px;
   }
 }

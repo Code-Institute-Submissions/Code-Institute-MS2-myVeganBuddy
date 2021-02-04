@@ -265,6 +265,7 @@ To work on the project within a local IDE (such as VScode):
 >
 > - [Rounding Decimals in JavaScript](https://www.jacklmoore.com/notes/rounding-in-javascript/) - To round ingredient units.
 > - [How to transform integers with decimal points into fractions](https://gist.github.com/redteam-snippets/3934258) - To transform units to fractions.
+> - [Sticky Navigation bar](https://bbbootstrap.com/snippets/responsive-navigation-bar-search-box-72587512)
 >
 >
 ---

@@ -93,7 +93,7 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 > - "Yusei Magic" for recipe headers and titles(fall-back font of Sans-Serif).
 > ##### Images
 >
-> - Images are particular to each recipe and are hosted by the API itself [https://rapidapi.com/user/spoonacular].
+> - Images are particular to each recipe and are hosted by the API itself [Spoonacular](https://rapidapi.com/user/spoonacular).
 > 
 ---
 
@@ -105,7 +105,7 @@ A four-page web app featuring a search engine to aid vegans on finding recipes a
 > - Sticky navigation bar allows the user to easily navigate between pages.
 > - Footer allows the user quick accessibility to social media links.
 > - About page describing the project.
-> - Connected to Spoonacular API [https://rapidapi.com/user/spoonacular].
+> - Connected to [Spoonacular](https://rapidapi.com/user/spoonacular) API.
 > - Search engine to find recipes, according to available ingredients.
 > - Breadcrumbs on Result and Recipe pages to easily navigate through recipes.
 > - Recommendation of the day widget, to select random recipes and recommend to the user.

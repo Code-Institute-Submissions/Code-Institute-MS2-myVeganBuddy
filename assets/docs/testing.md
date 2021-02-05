@@ -26,25 +26,24 @@ Although the About page isn't part of the regular flow of the page, it gives a c
 ### Testing user stories from "User Stories" section of README.md
 
 1. _"I've tried to turn vegan a few times, but it is so hard to do it without planning! I wish there was a platform where I could simply type the ingredients I have and it turn out with bunch of recipes to try it."_
-    1. The website conveys a standard "search engine" layout. The search bar is easily spotted in the home page. 
-    2. There is a sticky navigation bar across the entire website. From there, you can navigate back to look for recipes.
-    3. Breadcrumbs provided between results - recipe in order for the user to navigate back towards the results.
+    1. The website conveys a standard "search engine" layout. The search bar is easily spotted in the home page. [Screenshot](../img/user_story-1.1.jpg)
+    2. There is a sticky navigation bar across the entire website. From there, you can navigate back to look for recipes. [Screenshot](../img/user_story-1.2.jpg)
+    3. Breadcrumbs provided between results - recipe in order for the user to navigate back towards the results. [Screenshot](../img/user_story-1.3.jpg)
     
 2. _"My partner is vegan, and I always spend ages trying to find the best recipe to cook for her. It'd be awesome if there's a way for me to have different ideas with a simple tap of my finger."_
-    1. From the home page, a simple tap on the button "Spin" will load top rated recipes.
-    2. From the refined search page, it is possible to filter results with 6 different parameters. 
-    3. Inside each recipe, there's a recommendation of the day widget, that loads random recipes for the user.
+    1. From the home page, a simple tap on the button "Search" will load top rated recipes. [Screenshot](../img/user_story-2.1.jpg)
+    2. Inside each recipe, there's a recommendation of the day widget, that loads random recipes for the user. [Screenshot](../img/user_story-2.2.jpg)
     
 3. _"My friends and I are all big gym goers, and I've been trying to convince them to turn vegan for ages now, but it is so difficult to find resources out there that have (real) nutritional information online."_
-    1. The recipes are rendered with Macros from the Result page, which helps the user decide if the recipe fit his requirements. 
-    2. There's a full nutritional information widget (collapsible information) which can be accesed from the recipe page.
+    1. The recipes are rendered with Macros from the Result page, which helps the user decide if the recipe fit his requirements. [Screenshot](../img/user_story-3.1.jpg)
+    2. There's a full nutritional information widget (collapsible information) which can be accesed from the recipe page. [Screenshot](../img/user_story-3.2.jpg)
 
 4.  _"Working and studying take a lot of time, so cooking is not always possible - being vegan, that means my options are often reduced. I'd like to be able to find new ideas that fit in my schedule."_
-    1. The recipe cards, rendered after the search, have visual information about the prep time, which help the users decide if fit their time frames.
+    1. The recipe cards, rendered after the search, have visual information about the prep time, which help the users decide if fit their time frames. [Screenshot](../img/user_story-4.1.jpg)
 
 5. _"I have a severe nut allergy, so I usually spend a lot of time researching about recipes, often looking for detailed information. It'd be handy if I could find recipes matching different options, such as allergens and ingredients."_
-    1. The refined search page offers five different filters to customise the user experience - allergens being one of them.  
-    2. With controls such as max calories, max proteins, max fats and max carbs the user can further filter the results and follow personalised meal plan.
+    1. The refined search page offers five different filters to customise the user experience - allergens being one of them. [Screenshot](../img/user_story-5.1.jpg)
+    2. With controls such as max calories, max proteins, max fats and max carbs the user can further filter the results and follow personalised meal plan. [Screenshot](../img/user_story-5.2.jpg)
 
 
 ### Manual testing
@@ -176,4 +175,4 @@ Although the About page isn't part of the regular flow of the page, it gives a c
 
 ## Further testing: 
 
-1. Publish page on GitHub pages and shared on diverse social media - asked friends, family and fellow Code Institute students to test the website and let me know if any bugs should appear.
+1. Publish page on GitHub pages and shared on diverse social media - asked friends, family and fellow Code Institute students to test the website and let me know if any bugs should appear. _(Unsolved bug/Not able to reproduce) Bug reported on "index.html" - button "search" does not trigger function._

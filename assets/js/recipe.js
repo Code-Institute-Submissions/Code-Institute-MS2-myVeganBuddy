@@ -3,15 +3,14 @@
 function requestRecipe(recipeId) {
 
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information?includeNutrition=true`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
-            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        }
-    })
-     
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "13b8334a45mshc2f5b45765f960cp1ea18ajsnb4cf78ea6aab",
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+            }
+        })
+
         .then((response) => response.json())
-        // passes the JSON object as a parameter of a rendering function
         .then((data) => renderRecipe(data))
         .catch((err) => alert(err));
 };
@@ -22,9 +21,9 @@ function requestRecipe(recipeId) {
 function renderRecipe(data) {
     // access the nutrients property of the object
     let nutrients = data.nutrition.nutrients;
-    let rating = Math.round(data.spoonacularScore/10) * 10;
+    let rating = Math.round(data.spoonacularScore / 10) * 10;
     // Creates variable with HTML elements to render on the page
-    let calPerPortion = nutrients[0].amount/data.servings;
+    let calPerPortion = nutrients[0].amount / data.servings;
     let recipeOutput = `
         <div class="row recipe-render">    
             <div class="col-sm-12 col-md-6 recipe-card">
@@ -63,10 +62,10 @@ function renderRecipe(data) {
                         </ul>
                     </div>
                 </div>
-            </div>`
-    
+            </div>`;
+
     // How to create list groups with icons - Tutorial found in https://mdbootstrap.com/snippets/jquery/mdbootstrap/949128#html-tab-view    
-        let macros = 
+    let macros =
 
         `   <div class="col-sm-12 col-md-6">
                 <div class="d-none d-md-block">
@@ -116,14 +115,14 @@ function renderRecipe(data) {
                             </th>
                         </tr>
                     </thead>
-                    <tbody>`
+                    <tbody>`;
     nutrients.forEach(function (nutrient) {
         if (nutrient.amount.toFixed(3) == 0) {
-            macros += ""
+            macros += "";
         } else {
             macros +=
 
-            `<tr>
+                `<tr>
                 <td>
                     ${nutrient.title}
                 </td>
@@ -133,76 +132,76 @@ function renderRecipe(data) {
                 <td>
                     ${round(nutrient.percentOfDailyNeeds/data.servings,2)}%
                 </td>
-            </tr>`
-            }
+            </tr>`;
+        }
     });
 
-    macros = macros + 
-            `       </tbody>
+    macros = macros +
+        `       </tbody>
                 </table>
             </div>
         </div>        
-    </div>`
+    </div>`;
 
 
-// Finds the method for the recipe
-    
-        let instructionOutput = 
-   
-    `   
+    // Finds the method for the recipe
+
+    let instructionOutput =
+
+        `   
     <div class="col-sm-12 col-md-8 order-md-1 method-list"> 
         <h4 class="section-title"> Method: </h4>
-        <ol class="step-list">`
+        <ol class="step-list">`;
 
     if (data.analyzedInstructions.length === 0) {
 
     } else {
         let instructionSteps = data.analyzedInstructions[0].steps;
-    
-        instructionSteps.forEach(function(step) {
+
+        instructionSteps.forEach(function (step) {
 
             instructionOutput +=
 
-            `<li class="list-item">
+                `<li class="list-item">
                 ${step.step}
-            </li>`
-        })
+            </li>`;
+        });
     }
-    instructionOutput = instructionOutput + 
+    instructionOutput = instructionOutput +
 
-    `
+        `
             </ol>
         </div>
-    </div>`
+    </div>`;
 
     // Accesses the ingredients property of the object
-    let ingredients = data.extendedIngredients
+    let ingredients = data.extendedIngredients;
     let ingredientOutput = `
     <div class="row method-ingredients">
         <div class="col-sm-12 col-md-4 order-md-12 ingredient-list">
             <h4 class="section-title"> Ingredients:</h4>
-            <ul class="ingredient-detail">`
+            <ul class="ingredient-detail">`;
     // Loops through the ingredients and prints it to the page
     ingredients.forEach(function (ingredient) {
-        
+
         if (ingredient.measures.us.amount.toFixed(1) < 1) {
 
 
-            ingredient.amount = decimalToFraction(round(ingredient.measures.us.amount,1)).display;
-            
+            ingredient.amount = decimalToFraction(round(ingredient.measures.us.amount, 1)).display;
+
         } else {
             ingredient.amount = Math.round(ingredient.amount);
         }
 
         ingredientOutput +=
 
-        `<li class="list-item">${ingredient.amount} ${ingredient.measures.us.unitShort} ${ingredient.name}</li>`
+            `<li class="list-item">${ingredient.amount} ${ingredient.measures.us.unitShort} ${ingredient.name}</li>`;
     });
     // Re-defines the variable and adds the closing HTML tag
     ingredientOutput = ingredientOutput +
-    
-    `       </ul>
-        </div>`
+
+        `       </ul>
+        </div>`;
     // Directs the variable to the html element
     var requestedRecipe = recipeOutput + macros + ingredientOutput + instructionOutput; // Swapping column orders for different screen sizes [How to Reorder Columns with Bootstrap 4 Order Classes] - Tutorial found on: https://bootstrapcreative.com/bootstrap-push-pull-column-ordering-tutorial/
     localStorage.setItem('requestedRecipe', requestedRecipe);
@@ -212,13 +211,13 @@ function renderRecipe(data) {
 
 // How to round integers with decimal precision - [Rounding Decimals in JavaScript] code found in: https://www.jacklmoore.com/notes/rounding-in-javascript/
 function round(value, decimals) {
-  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
 
 
 // How to transform integers with decimal points into fractions - code found on: https://gist.github.com/redteam-snippets/3934258
 function gcd(a, b) {
-	return (b) ? gcd(b, a % b) : a;
+    return (b) ? gcd(b, a % b) : a;
 }
 var decimalToFraction = function (_decimal) {
     if (_decimal == parseInt(_decimal)) {
@@ -227,14 +226,12 @@ var decimalToFraction = function (_decimal) {
             bottom: 1,
             display: parseInt(_decimal) + '/' + 1
         };
-    }
-    else {
+    } else {
         var top = _decimal.toString().includes(".") ? _decimal.toString().replace(/\d+[.]/, '') : 0;
-        var bottom = Math.pow(10, top.toString().replace('-','').length);
+        var bottom = Math.pow(10, top.toString().replace('-', '').length);
         if (_decimal >= 1) {
             top = +top + (Math.floor(_decimal) * bottom);
-        }
-        else if (_decimal <= -1) {
+        } else if (_decimal <= -1) {
             top = +top + (Math.ceil(_decimal) * bottom);
         }
 
@@ -247,25 +244,26 @@ var decimalToFraction = function (_decimal) {
     }
 };
 
-
+// Function to get random recipe in the widget
 function getRandomRecipe() {
     fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegan", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "fe8f971646msh9a61d136e93d8afp1bee14jsn2077cab49339",
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-	    }
-    
-    })
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "fe8f971646msh9a61d136e93d8afp1bee14jsn2077cab49339",
+                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+            }
+
+        })
         .then((response) => response.json())
         .then((data) => renderRandom(data))
         .catch((err) => alert(err));
-};
+}
 
+// Renders the HTML element for the random recipe widget
 function renderRandom(data) {
-    
+
     data = data.recipes[0];
-    let randomRecipe = 
+    let randomRecipe =
 
         `   
         <div class="img-wrapper-random">
@@ -281,15 +279,16 @@ function renderRandom(data) {
         </div>
         <div class="text-center">
             <button href="recipe.html" target="_blank" class="btn btn-success" onclick="requestRecipe(${data.id})">Try me!</button>
-        </div>`
+        </div>`;
 
     localStorage.setItem('randomRecipe', randomRecipe);
 }
 
+// Function to call the random recipe widget from mobile
 function fetchRandom() {
-    let randomRecipeWrapper = document.getElementById('randomRecipeWrapper')
+    let randomRecipeWrapper = document.getElementById('randomRecipeWrapper');
     let randomWrapper = document.getElementById('randomRecipe-sm');
-    randomWrapper.innerHTML = randomRecipeWrapper.innerHTML + `</div>`
+    randomWrapper.innerHTML = randomRecipeWrapper.innerHTML + `</div>`;
 
-    document.getElementById('random-header').style.display = "none"
+    document.getElementById('random-header').style.display = "none";
 }

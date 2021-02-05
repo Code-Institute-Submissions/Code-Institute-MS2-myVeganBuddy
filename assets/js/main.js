@@ -19,7 +19,7 @@ if (wLocation.toString().includes('index.html')) {
     buttonApiSm.addEventListener('click', function () {
         requestAPI(searchBarSm);
     });
-
+    
 } else {
     const buttonRes = document.getElementById('buttonRes');
     const buttonResSm = document.getElementById('buttonResSm');
